@@ -40,7 +40,7 @@ The following steps are only for _one_ of the group members to perform.
 ## OPTION 8 buy/sell
 
 An app where you can put different types of things up for sale. You can pick a specific niche of items to sell for the app (a cars site, a shoes site, etc). This lets buyers find the items they are looking for quickly, and easily contact sellers.
-[Requirements](https://github.com/briantran98/BuyAndSell/blob/master/planning/user-stories.md):
+[Requirements](https://github.com/endonoh0/cash_n_carry/blob/master/planning/user-stories.md):
 
     users can see featured items on a main feed
     users can filter items by price,
@@ -53,7 +53,7 @@ Admins can:
     remove items from the site
     mark items as SOLD!,
     send a message via app, email, or text back on negotiations in buying the said item
-    
+
 ## Dependencies
 
 - Node 10.x or above
