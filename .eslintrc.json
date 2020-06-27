@@ -11,7 +11,8 @@
     "SharedArrayBuffer": "readonly"
   },
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   "rules": {
     "indent": [
@@ -22,6 +23,7 @@
       "error",
       "unix"
     ],
+    "quotes": "off",
     "semi": [
       "error",
       "always"
@@ -44,7 +46,6 @@
     "eqeqeq": "error",
     "brace-style": "error",
     "space-before-function-paren": [ "warn", { "anonymous": "never", "named": "never", "asyncArrow": "never" } ],
-    "func-names": ["error", "never"],
-    "quotes": "off"
+    "func-names": ["error", "never"]
   }
 }
