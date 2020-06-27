@@ -26,7 +26,6 @@ Admins can:
 | product  |/products/:id   |PATCH   |Update the specific product   |
 | product  | /products/:id  | DELETE  |Delete the specific product and redirect to the home page  |
 | product  |/products   |POST   |Add a new product to the database, then redirect to the product page   |
-
 |conversaton |products/:id/conversations/:id   |GET |Dislay the specific conversation   |
 |product |/products/:id/conversations |POST |Add a new conversation to the database |
 | message  |products/:id/conversations/:id/messages |GET   |Display all messages   |
