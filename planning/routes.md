@@ -26,10 +26,8 @@ Admins can:
 | product  |/products/:id   |PATCH   |Update the specific product   |
 | product  | /products/:id  | DELETE  |Delete the specific product and redirect to the home page  |
 | product  |/products   |POST   |Add a new product to the database, then redirect to the product page   |
-|conversaton |products/:id/conversations/:id   |GET |Dislay the specific conversation   |
-|product |/products/:id/conversations |POST |Add a new conversation to the database |
-| message  |products/:id/conversations/:id/messages |GET   |Display all messages   |
-| message   | products/:id/conversations/:id/messages  |POST   |Add a new message to the conversation|
+| message  |/products/:id/messages |GET   |Display all messages   |
+| message   |/products/:id/messages  |POST   |Add a new message to the conversation|
 
 1. GET the gangsters
     - `/gangster/:id`
