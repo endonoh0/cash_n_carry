@@ -26,6 +26,19 @@ module.exports = (router, db) => {
     );
   });
 
+  router.post('/:id/messages', (req, res) => {
+
+  });
+
+  //Overloaded methods
+  router.patch('/:id', (req, res) => {
+
+  });
+
+  router.delete('/:id', (req, res) => {
+
+  });
+
   return router;
 };
 
