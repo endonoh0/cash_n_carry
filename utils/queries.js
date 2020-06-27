@@ -41,6 +41,6 @@ const insertUsers = `
 // `;
 
 module.exports = {
-  createUsersTable,
-  insertUsers
- };
+    createUsersTable,
+    insertUsers,
+};
