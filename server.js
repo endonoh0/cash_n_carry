@@ -1,5 +1,5 @@
 require('dotenv').config();
-// const { db } = require('./models/pool')
+const { db } = require('./models/pool.js')
 
 const PORT       = process.env.PORT || 8080;
 const express    = require("express");
@@ -9,12 +9,11 @@ const app        = express();
 const morgan     = require('morgan');
 
 // PG database client/connection setup
-const { Pool } = require('pg');
+// const { Pool } = require('pg');
+// const dbParams = require('./lib/db.js');
+// const db = new Pool(dbParams);
 
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-
-db.connect();
+// db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
