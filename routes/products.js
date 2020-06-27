@@ -13,6 +13,10 @@ module.exports = (router, db) => {
     res.render('products_show', {productId});
   });
 
+  router.get('/:id/messages', (req, res) => {
+    res.render('messages');
+  });
+
   router.post('/', (req, res) => {
     const userId = req.session.userId;
     const post = {...req.body, seller_id: userId, active: true, featured: true};
