@@ -24,10 +24,10 @@ app.use(morgan('dev'));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
-  src: __dirname + "/styles",
-  dest: __dirname + "/public/styles",
-  debug: true,
-  outputStyle: 'expanded'
+    src: __dirname + "/styles",
+    dest: __dirname + "/public/styles",
+    debug: true,
+    outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
 
@@ -50,9 +50,9 @@ app.use('/products', productsRoutes());
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+    res.render("index");
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+    console.log(`Example app listening on port ${PORT}`);
 });
