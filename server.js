@@ -41,7 +41,7 @@ const productsRoutes = require("./routes/products");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use('/products', productsRoutes());
+app.use('/products', productsRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
