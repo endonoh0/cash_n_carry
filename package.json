@@ -8,7 +8,7 @@
     "start": "node server.js",
     "local": "./node_modules/.bin/nodemon -L --ignore public/",
     "db:reset": "node bin/resetdb.js",
-    "lint": "./node_modules/.bin/eslint . --fix --ext .js --ignore-pattern node_modules/"
+    "lint": "./node_modules/.bin/eslint . --fix --ext .js --ignore-pattern node_modules --ignore-pattern public/"
   },
   "author": "Lighthouse Labs",
   "license": "ISC",
