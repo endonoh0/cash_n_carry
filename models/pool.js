@@ -1,9 +1,9 @@
 require('dotenv').config();
 
+const { connectionString } = require('../settings');
 const { Pool } = require('pg');
-const { dbParams } = require('../lib/db.js');
 
-const db = new Pool(dbParams);
+const db = new Pool({ connectionString });
 db.connect();
 
-module.exports = db;
+module.exports = { db };
