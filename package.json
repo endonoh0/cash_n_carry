@@ -10,7 +10,8 @@
         "db:reset": "node bin/resetdb.js",
         "lint": "./node_modules/.bin/eslint . --fix --ext .js --ignore-pattern node_modules --ignore-pattern public/",
         "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
-        "postpretty": "npm lint --fix"
+        "postpretty": "npm lint --fix",
+        "query": "node ./utils/runQuery"
     },
     "author": "Lighthouse Labs",
     "license": "ISC",

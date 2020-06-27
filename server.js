@@ -1,4 +1,4 @@
-const { db } = require('./models/pool.js');
+const { pool } = require('./models/pool.js');
 
 const PORT = process.env.PORT || 8080;
 const express = require('express');
@@ -26,7 +26,7 @@ app.use(express.static('public'));
 const usersRoutes = require('./routes/users');
 
 // Mount all resource routes
-app.use('/api/users', usersRoutes(db));
+app.use('/api/users', usersRoutes(pool));
 
 // Home page
 // Warning: avoid creating more routes in this file!
