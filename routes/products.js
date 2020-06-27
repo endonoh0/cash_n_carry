@@ -1,19 +1,17 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('products');
+    res.render('products');
 });
 
 router.get('/new', (req, res) => {
-  res.render('products_new');
+    res.render('products_new');
 });
 
 router.get('/:id', (req, res) => {
-  const productId = req.params.id;
-  res.render('products_show', {productId});
+    const productId = req.params.id;
+    res.render('products_show', { productId });
 });
-
-
 
 module.exports = router;
