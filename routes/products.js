@@ -14,6 +14,4 @@ router.get('/:id', (req, res) => {
   res.render('products_show', {productId});
 });
 
-
-
 module.exports = router;
