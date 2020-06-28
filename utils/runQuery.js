@@ -1,7 +1,9 @@
-const { dropAllTables, createTables, insertIntoTables } = require('./queryFunctions');
+const {dropAllTables, createUsersTables, createProductsTable, insertIntoUsers, insertIntoProducts } = require('./queryFunctions');
 
 (async () => {
-  await dropAllTables();
-  await createTables();
-  await insertIntoTables();
+  // await dropAllTables();
+  // await createUsersTables();
+  // await insertIntoUsers();
+  // await createProductsTable();
+  await insertIntoProducts();
 })();

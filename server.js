@@ -24,9 +24,11 @@ app.use(express.static('public'));
 
 // Separat ed Routes for each Resource
 const usersRoutes = require('./routes/users');
+const productsRoutes = require('./routes/products');
 
 // Mount all resource routes
 app.use('/api/users', usersRoutes(pool));
+app.use('/api/products', productsRoutes(pool));
 
 // Home page
 // Warning: avoid creating more routes in this file!
