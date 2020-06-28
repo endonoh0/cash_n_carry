@@ -1,9 +1,9 @@
-const dropTables =`
+const dropTables = `
   DROP TABLE IF EXISTS users CASCADE;
   DROP TABLE IF EXISTS products CASCADE;
 `;
 
-const createUsers= `
+const createUsers = `
   CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -44,9 +44,9 @@ const insertProducts = `
 `;
 
 module.exports = {
-  createUsers,
-  createProducts,
-  insertUsers,
-  insertProducts,
-  dropTables
- };
+    createUsers,
+    createProducts,
+    insertUsers,
+    insertProducts,
+    dropTables,
+};

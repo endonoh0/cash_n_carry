@@ -28,7 +28,11 @@ const productsRoutes = require('./routes/products');
 
 // Mount all resource routes
 app.use('/api/users', usersRoutes(pool));
-app.use('/api/products', productsRoutes(pool));
+// app.use('/api/products', productsRoutes(pool));
+
+const productRouter = express.Router();
+productsRoutes(productRouter, pool);
+app.use('/api/products', productRouter);
 
 // Home page
 // Warning: avoid creating more routes in this file!

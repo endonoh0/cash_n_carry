@@ -1,5 +1,11 @@
 const { pool } = require('../models/pool');
-const {dropTables, insertUsers, insertProducts, createUsers, createProducts} = require('./queries');
+const {
+    dropTables,
+    insertUsers,
+    insertProducts,
+    createUsers,
+    createProducts,
+} = require('./queries');
 
 const executeQueryArray = async (arr) =>
     new Promise((resolve) => {
@@ -15,19 +21,25 @@ const dropAllTables = () => {
 };
 
 const createUsersTables = () => {
-  executeQueryArray([createUsers]);
-}
+    executeQueryArray([createUsers]);
+};
 
 const insertIntoUsers = () => {
-  executeQueryArray([insertUsers]);
-}
+    executeQueryArray([insertUsers]);
+};
 
 const createProductsTable = () => {
-  executeQueryArray([createProducts]);
-}
+    executeQueryArray([createProducts]);
+};
 
 const insertIntoProducts = () => {
-  executeQueryArray([insertProducts]);
-}
+    executeQueryArray([insertProducts]);
+};
 
-module.exports = { dropAllTables, createUsersTables, createProductsTable, insertIntoUsers, insertIntoProducts };
+module.exports = {
+    dropAllTables,
+    createUsersTables,
+    createProductsTable,
+    insertIntoUsers,
+    insertIntoProducts,
+};
