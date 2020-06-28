@@ -1,17 +1,18 @@
 const { pool } = require('../models/pool');
 const {dropTables, insertUsers, insertProducts, createUsers, createProducts} = require('./queries');
 
-const executeQueryArray = async arr => new Promise(resolve => {
-  const stop = arr.length;
-  arr.forEach(async (q, index) => {
-    await pool.query(q);
-    if (index + 1 === stop) resolve();
-  });
-});
+const executeQueryArray = async (arr) =>
+    new Promise((resolve) => {
+        const stop = arr.length;
+        arr.forEach(async (q, index) => {
+            await pool.query(q);
+            if (index + 1 === stop) resolve();
+        });
+    });
 
 const dropAllTables = () => {
-  executeQueryArray([dropTables]);
-}
+    executeQueryArray([dropTables]);
+};
 
 const createUsersTables = () => {
   executeQueryArray([createUsers]);
