@@ -15,6 +15,15 @@ class Model {
         if (clause) query += clause;
         return this.pool.query(query);
     }
+
+    async insert(columns, values) {
+      const query = `
+          INSERT INTO ${this.table}(${columns})
+          VALUES (${values})
+          RETURNING *;
+      `;
+      return this.pool.query(query);
+    }
 }
 
 module.exports = { Model };

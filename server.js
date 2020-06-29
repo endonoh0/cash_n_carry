@@ -1,11 +1,14 @@
-const { pool } = require('./models/pool.js');
+// Database connection
+const { database }      = require('./models/pool.js');
 
-const PORT = process.env.PORT || 8080;
-const express = require('express');
-const bodyParser = require('body-parser');
-const sass = require('node-sass-middleware');
-const app = express();
-const morgan = require('morgan');
+const morgan        = require('morgan');
+const sass          = require('node-sass-middleware');
+
+const PORT          = process.env.PORT || 8080;
+const express       = require('express');
+const bodyParser    = require('body-parser');
+
+const app           = express();
 
 app.use(morgan('dev'));
 
@@ -22,24 +25,21 @@ app.use(
 );
 app.use(express.static('public'));
 
-// Separat ed Routes for each Resource
-const usersRoutes = require('./routes/users');
-const productsRoutes = require('./routes/products');
+const indexRouter = require('./routes/index');
+const productRouter = require('./routes/products');
 
-// Mount all resource routes
-app.use('/api/users', usersRoutes(pool));
-// app.use('/api/products', productsRoutes(pool));
+app.use('/', indexRouter(database));
+app.use('/products', productRouter(database));
 
-const productRouter = express.Router();
-productsRoutes(productRouter, pool);
-app.use('/api/products', productRouter);
 
-// Home page
-// Warning: avoid creating more routes in this file!
-app.get('/', (req, res) => {
-    res.render('index');
-});
+// // Home page
+// app.get('/', (req, res) => {
+//     res.render('index');
+// });
+
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
 });
+
+module.exports = app;
