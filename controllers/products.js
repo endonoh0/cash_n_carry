@@ -8,15 +8,19 @@ module.exports = {
     try {
       const data = await productModel.select('*');
       res.status(200).json({ data: data.rows });
-      // res.render('products', { data: data.rows });
     } catch (err) {
       res.status(200).json({ error: err.stack });
     }
   },
 
   // Display detail page for a specific ProductInstance.
-  show: (req, res) => {
-    res.send('NOT IMPLEMENTED: ProductInstance detail: ' + req.params.id);
+  show: async (req, res) => {
+    try {
+      const data = await productModel.select('*', ` WHERE id = ${req.params.id}`, res);
+      res.render('products_show', data.rows[0] );
+    } catch (err) {
+      res.status(200).json({ error: err.stack });
+    }
   },
 
   // Display ProductInstance create form on GET.
@@ -25,8 +29,26 @@ module.exports = {
   },
 
     // Handle ProductInstance create on POST.
-  store: (req, res) => {
-    res.send('NOT IMPLEMENTED: ProductInstance create POST');
+  store: async (req, res) => {
+    const {
+      title,
+      description,
+      price,
+      location,
+      cover_photo_url,
+      product_photo_url,
+      user_id,
+    } = req.body;
+
+    const columns = 'title, description, price, location, user_id';
+    const values = `'${title}', '${description}', ${price}, '${location}', 1`;
+
+    try {
+      await productModel.insert(columns, values, res);
+      res.redirect('/products')
+    } catch (err) {
+      res.status(200).json({ error: err.stack });
+    }
   },
 
   // Handle ProductInstance delete on POST.
@@ -42,29 +64,6 @@ module.exports = {
 
 
 // const addProduct = async (req, res) => {
-//   const {
-//     title,
-//     description,
-//     price,
-//     quantity,
-//     location,
-//     cover_photo_url,
-//     product_photo_url,
-//     seller_id,
-//     active,
-//     featured,
-//   } = req.body;
-
-//   const columns = 'title, description, price, quantity, location, cover_photo_url, product_photo_url, user_id, active, featured';
-//   const values = `'${title}', ${description}', ${price}', ${quantity}', ${location}', ${cover_photo_url}', ${product_photo_url}', ${seller_id}', ${active}', ${featured}'`;
-
-//   try {
-//     const data = await productModel.insert(columns, values);
-//     res.status(200).json({ data: data.rows });
-//   } catch (err) {
-//     res.status(200).json({ error: err.stack });
-//   }
-// }
 
 
 

@@ -3,8 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-color: #f0e046;
-  background-image: url(https://images3.alphacoders.com/621/621682.jpg);
-  background-attachment: fixed;
+  // background-image: url(https://images3.alphacoders.com/621/621682.jpg);
+  // background-attachment: fixed;
 }
 
 header
@@ -168,6 +168,56 @@ nav ul li a:hover
   cursor: pointer;
 }
 
+// products
+
+article {
+  display: flex;
+  justify-content: center;
+}
+
+.container
+{
+  width: 90vw;
+  // width: 1200px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.column
+{
+    max-width: 20rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin: 3rem 0;
+}
+
+.card-img
+{
+  width: 100%;
+}
+
+.column-content
+{
+  display: flex;
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .card-title
+  {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.float-r
+{
+  float: right;
+}
 
 // Media
 

@@ -8,7 +8,7 @@
 <body>
   <header><%- include('./partials/_header') %></header>
 
-  <form action="/" method="POST">
+  <form action="/api/products" method="POST">
     <div class="wrapper">
         <div class="content">
             <h1>Product Form</h1>
@@ -35,7 +35,7 @@
                 <div class="inner-form">
                     <div class="label">Description</div>
                     <textarea
-                        name="text"
+                        name="description"
                         id="Description"
                         rows="8"
                         required
@@ -55,18 +55,10 @@
             </div>
 
             <button type="submit" class="btn">Post</button>
+          </div>
         </div>
-    </div>
   </form>
 
     <footer><%- include('./partials/_footer') %></footer>
-    <!-- Get value of textarea and input -->
-    <script>
-      $(document).ready(function () {
-        $(".btn").click(function () {
-          $("input[type='text'], textarea").val("");
-        });
-      });
-    </script>
 </body>
 </html>

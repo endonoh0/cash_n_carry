@@ -1,10 +1,12 @@
 const { pool } = require('../models/pool');
 const {
-    dropTables,
+    dropTable,
     insertUsers,
     insertProducts,
+    insertFavorites,
     createUsers,
     createProducts,
+    createFavorites
 } = require('./queries');
 
 const executeQueryArray = async (arr) =>
@@ -17,7 +19,7 @@ const executeQueryArray = async (arr) =>
     });
 
 const dropAllTables = () => {
-    executeQueryArray([dropTables]);
+    executeQueryArray([dropTable]);
 };
 
 const createUsersTables = () => {
@@ -36,10 +38,20 @@ const insertIntoProducts = () => {
     executeQueryArray([insertProducts]);
 };
 
+const createFavoritesTable = () => {
+    executeQueryArray([createFavorites]);
+};
+
+const insertIntoFavorites = () => {
+    executeQueryArray([insertFavorites]);
+};
+
 module.exports = {
     dropAllTables,
     createUsersTables,
     createProductsTable,
+    createFavoritesTable,
     insertIntoUsers,
     insertIntoProducts,
+    insertIntoFavorites
 };

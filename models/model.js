@@ -13,16 +13,18 @@ class Model {
     async select(columns, clause) {
         let query = `SELECT ${columns} FROM ${this.table}`;
         if (clause) query += clause;
-        return this.pool.query(query);
+        return this.pool.query(query)
+        // .then(res => res.rows);
     }
 
-    async insert(columns, values) {
+    async insert(columns, values, res) {
       const query = `
-          INSERT INTO ${this.table}(${columns})
+          INSERT INTO ${this.table} (${columns})
           VALUES (${values})
           RETURNING *;
       `;
-      return this.pool.query(query);
+      this.pool.query(query)
+      .then(res => res.rows);
     }
 }
 
