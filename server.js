@@ -29,10 +29,10 @@ const indexRouter = require('./routes/index');
 const productRouter = require('./routes/products');
 
 // API endpoints
-app.use('/', indexRouter(database));
+app.use('/api', indexRouter(database));
 
 // Product routes
-app.use('/products', productRouter(database));
+app.use('/', productRouter(database));
 
 
 // // Home page

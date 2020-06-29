@@ -7,7 +7,8 @@ module.exports = {
   index: async (req, res) => {
     try {
       const data = await productModel.select('*');
-      res.render('products', { data: data.rows });
+      res.status(200).json({ data: data.rows });
+      // res.render('products', { data: data.rows });
     } catch (err) {
       res.status(200).json({ error: err.stack });
     }

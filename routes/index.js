@@ -9,23 +9,19 @@ const express         = require('express');
 const router          = express.Router();
 
 const users           = require('../controllers/users');
+const products           = require('../controllers/products');
 
 
 module.exports = () => {
 
-    // GET site home page.
-    router.get('/', (req, res) => {
-      res.render('index');
-    });
-
     // GET request to show all users.
     router.get('/users', users.index);
 
+    // GET request to show all products.
+    router.get('/products', products.index);
+
     // GET request for one user.
     router.get('/users/:id', users.show);
-
-
-
 
     return router;
 };
