@@ -28,7 +28,10 @@ app.use(express.static('public'));
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/products');
 
+// API endpoints
 app.use('/', indexRouter(database));
+
+// Product routes
 app.use('/products', productRouter(database));
 
 

@@ -1,22 +1,16 @@
-const { Model }     = require('../models/model');
-const productModel  = new Model('products');
+const { Model }       = require('../models/model');
+const productModel    = new Model('products');
 
 module.exports = {
-// const productPage = async (req, res) => {
-//   try {
-//     const data = await productModel.select('*');
-//     res.status(200).json({ data: data.rows });
-//     // res.render('products', { data: data.rows });
-//     // res.send(data.rows);
-//     // console.log(data.rows);
-//     // res.render('products', { data: data.rows });
-//   } catch (err) {
-//     res.status(200).json({ error: err.stack });
-//   }
-// }
+
   // Display list of all ProductInstances.
-  index: (req, res) => {
-    res.send('NOT IMPLEMENTED: ProductInstance list');
+  index: async (req, res) => {
+    try {
+      const data = await productModel.select('*');
+      res.render('products', { data: data.rows });
+    } catch (err) {
+      res.status(200).json({ error: err.stack });
+    }
   },
 
   // Display detail page for a specific ProductInstance.

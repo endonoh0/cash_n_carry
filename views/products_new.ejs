@@ -8,56 +8,56 @@
 <body>
   <header><%- include('./partials/_header') %></header>
 
-  <div class="wrapper">
-      <div class="content">
-          <h1>Product Form</h1>
-          <p>Whatcha' selling, Willis?</p>
-      </div>
+  <form action="/" method="POST">
+    <div class="wrapper">
+        <div class="content">
+            <h1>Product Form</h1>
+            <p>Whatcha' selling, Willis?</p>
+        </div>
 
-      <div class="form">
-          <div class="top-form">
-              <div class="inner-form">
-                  <div class="label">Title</div>
-                  <input type="text" id="title" name="title" required>
-              </div>
-              <div class="inner-form">
-                  <div class="label">Price</div>
-                  <input type="text" id="price" name="price" placeholder="$" required>
-              </div>
-              <div class="inner-form">
-                  <div class="label">Location</div>
-                  <input type="text" id="location" name="location" required>
-              </div>
-          </div>
+        <div class="form">
+            <div class="top-form">
+                <div class="inner-form">
+                    <div class="label">Title</div>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="inner-form">
+                    <div class="label">Price</div>
+                    <input type="text" id="price" name="price" placeholder="$" required>
+                </div>
+                <div class="inner-form">
+                    <div class="label">Location</div>
+                    <input type="text" id="location" name="location" required>
+                </div>
+            </div>
 
-          <div class="middle-form">
-              <div class="inner-form">
-                  <div class="label">Description</div>
-                  <textarea
-                      name="text"
-                      id="Description"
-                      rows="8"
-                      required
-                  ></textarea>
-              </div>
-          </div>
+            <div class="middle-form">
+                <div class="inner-form">
+                    <div class="label">Description</div>
+                    <textarea
+                        name="text"
+                        id="Description"
+                        rows="8"
+                        required
+                    ></textarea>
+                </div>
+            </div>
 
-          <div class="bottom-form">
-              <div class="inner-form label">
-                  <label for="cover_photo_url">Add Cover Photo</label>
-                  <input type="file" class="form-control-file" id="cover_photo" name="cover_photo_url">
-              </div>
-              <div class="inner-form">
-                  <label for="cover_photo_url">Add Product Photo</label>
-                  <input type="file" class="form-control-file" id="product_photo" name="product_photo_url">
-              </div>
-          </div>
+            <div class="bottom-form">
+                <div class="inner-form label">
+                    <label for="cover_photo_url">Add Cover Photo</label>
+                    <input type="file" class="form-control-file" id="cover_photo" name="cover_photo_url">
+                </div>
+                <div class="inner-form">
+                    <label for="cover_photo_url">Add Product Photo</label>
+                    <input type="file" class="form-control-file" id="product_photo" name="product_photo_url">
+                </div>
+            </div>
 
-          <div>
-            <div class="btn">Post</div>
-          </div>
-      </div>
-  </div>
+            <button type="submit" class="btn">Post</button>
+        </div>
+    </div>
+  </form>
 
     <footer><%- include('./partials/_footer') %></footer>
     <!-- Get value of textarea and input -->
