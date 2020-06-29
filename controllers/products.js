@@ -26,7 +26,7 @@ module.exports = {
 
   // Display ProductInstance create form on GET.
   create: (req, res) => {
-    res.send('NOT IMPLEMENTED: ProductInstance create GET');
+    res.render('products_new');
   },
 
     // Handle ProductInstance create on POST.

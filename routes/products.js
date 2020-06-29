@@ -28,9 +28,7 @@ module.exports = (db) => {
     //     res.render('products');
     // });
 
-    // router.get('/new', (req, res) => { // products/new
-    //     res.render('products_new');
-    // });
+
 
     // router.get('/:id', (req, res) => {
     //     const productId = req.params.id;
