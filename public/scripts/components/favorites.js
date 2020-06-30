@@ -5,12 +5,13 @@ $(document).ready(function() {
     //     $(this).addClass(localStorage.favorited);
     // }
 
+
     $(document.body).on("click", ".fa-heart", function(e) {
         e.preventDefault();
 
         const $product_id = $('.product_id').text();
         
-        
+        localStorage.fav = "favorited";
         // $.post(`/api/favorite/`, {$product_id});
 
         if (!$(this).hasClass('favorited')) {

@@ -41,13 +41,13 @@ module.exports = {
             description,
             price,
             location,
-            cover_photo_url,
-            product_photo_url,
-            user_id,
+            // cover_photo_url,
+            // product_photo_url,
+            // user_id,
         } = req.body;
 
         const columns = 'title, description, price, location, user_id';
-        const values = `'${title}', '${description}', ${price}, '${location}', 1`;
+        const values = [title, description, price, location, req.session.userId];
 
         try {
             await productModel.insert(columns, values, res);
