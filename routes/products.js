@@ -12,20 +12,20 @@ module.exports = (db) => {
         res.render('products');
     });
 
-    // GET request for creating a product. Note this must come before routes that display book (uses id).
-    router.get('/products/new', product.create);
-
     // POST request for creating a product.
     router.post('/api/products', product.store);
+
+    // GET request for creating a product. Note this must come before routes that display book (uses id).
+    router.get('/products/new', product.create);
+    
+    // GET request for one product.
+    router.get('/products/:id', product.show);
 
     // POST request to delete product.
     router.post('/products/:id', product.destroy);
 
     // POST request to update product.
     router.post('/products/:id', product.update);
-
-    // GET request for one product.
-    router.get('/products/:id', product.show);
 
     // router.get('/', (req, res) => { // products
     //     res.render('products');

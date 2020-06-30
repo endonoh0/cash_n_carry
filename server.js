@@ -29,6 +29,7 @@ app.use(
 );
 app.use(
     cookieSession({
+        httpOnly: false,
         name: 'session',
         keys: ['key1', 'key2'],
     })

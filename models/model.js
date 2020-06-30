@@ -18,12 +18,20 @@ class Model {
     }
 
     async insert(columns, values, res) {
+        let numOfValues = "";
+        for (let i = 0; i < values.length; i++) {
+            numOfValues += `$${i + 1}`;
+            if (i + 1 !== values.length) {
+                numOfValues += `, `;
+            }
+        }
         const query = `
           INSERT INTO ${this.table} (${columns})
-          VALUES (${values})
+          VALUES (${numOfValues})
           RETURNING *;
       `;
-        this.pool.query(query).then((res) => res.rows);
+        console.log(query);
+        this.pool.query(query, values).then((res) => res.rows);
     }
 }
 

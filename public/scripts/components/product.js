@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     // Fetch products
     $.ajax({
         method: 'GET',
@@ -6,25 +6,27 @@ $(document).ready(function () {
     }).done((data) => {
         renderProducts(data.data);
     });
+
+
 });
 
 // Insert the products into the DOM
-const renderProducts = function (products) {
-    const $container = $('#products-container').empty();
-    let id = $('.id').text().trim();
-
-    $container.prepend(createProductElement(products[id]));
+const renderProducts = function(products) {
+    const $container = $('#products-container');
+    let id = $('.product_id').text().trim();
+    $container.prepend(createProductElement(products[id - 1]));
 };
 
 // Insert products inputs into html template
-const createProductElement = function (product) {
+const createProductElement = function(product) {
+    console.log(product);
     return $(`
     <div id="wrapper">
         <div class="column" id="product-header">
             <div class="flexbox">
                 <div>
-                    <button class="">Reply</button>
-                    <button <i class="fa fa-heart"></i></button>
+                    <button id="reply" class="reply">Reply</button>
+                    <button><i class="fa fa-heart"></i></button>
                 </div>
                 <span>Posted 10 days ago...</span>
               </div>
@@ -37,3 +39,8 @@ const createProductElement = function (product) {
     </div>
 `);
 };
+
+// $(document.body).on("click", "button", function(){
+//     alert("test");
+//     $("button").css("color","red");
+// })

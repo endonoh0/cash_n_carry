@@ -4,6 +4,7 @@
 <head>
   <%- include('./partials/_head') %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css">
 
 </head>
 
@@ -11,16 +12,19 @@
     <header><%- include('./partials/_header') %></header>
 
     <main>
-        <div id="products-container">
 
+        <div id="products-container">
         </div>
-        <div class="id">
-          <%= id %>
+        <div>
+          <p class="product_id"><%= id %></p>
+          <p class="user_id"><%= userId %></p>
         </div>
 
     </main>
 
     <footer><%- include('./partials/_footer') %></footer>
     <script type="text/javascript" src="/scripts/components/product.js"></script>
+    <script type="text/javascript" src="/scripts/components/favorites.js"></script>
+
 </body>
 </html>
