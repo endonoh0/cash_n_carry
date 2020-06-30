@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // Fetch products
     $.ajax({
         method: 'GET',
@@ -9,16 +9,15 @@ $(document).ready(function() {
 });
 
 // Insert the products into the DOM
-const renderProducts = function(products) {
+const renderProducts = function (products) {
     const $container = $('#products-container').empty();
     let id = $('.id').text().trim();
-
 
     $container.prepend(createProductElement(products[id]));
 };
 
 // Insert products inputs into html template
-const createProductElement = function(product) {
+const createProductElement = function (product) {
     return $(`
     <div id="wrapper">
         <div class="column" id="product-header">

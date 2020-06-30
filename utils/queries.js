@@ -80,5 +80,5 @@ module.exports = {
     insertMessages,
     insertUsers,
     insertProducts,
-    insertFavorites
+    insertFavorites,
 };

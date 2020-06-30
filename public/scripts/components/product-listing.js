@@ -1,26 +1,25 @@
 $(document).ready(function () {
-
-  // Fetch products
+    // Fetch products
     $.ajax({
-    method: 'GET',
-    url: '/api/products',
-  }).done((data) => {
-    renderProducts(data.data)
-  });
+        method: 'GET',
+        url: '/api/products',
+    }).done((data) => {
+        renderProducts(data.data);
+    });
 });
 
 // Insert the products into the DOM
 const renderProducts = function (products) {
-  const $container = $('.container').empty();
+    const $container = $('.container').empty();
 
-  products.forEach(function (product) {
-    $container.prepend(createProductElement(product));
-  });
-}
+    products.forEach(function (product) {
+        $container.prepend(createProductElement(product));
+    });
+};
 
 // Insert products inputs into html template
 const createProductElement = function (product) {
-  return $(`
+    return $(`
     <div class="column">
       <img class="card-img" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
       <div class="column-content">
@@ -29,5 +28,5 @@ const createProductElement = function (product) {
       </div>
       <a href="/products/${product.id}" class="btn float-r">Buy</a>
     </div>
-  `)
+  `);
 };
