@@ -14,6 +14,7 @@ module.exports = {
 
   // Display the specific UserInstance.
   show: (req, res) => {
-    res.send('NOT IMPLEMENTED: User detail: ' + req.params.id);
+    req.session.userId = req.params.id;
+    return res.redirect('/');
   }
 }
