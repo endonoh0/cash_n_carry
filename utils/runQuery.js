@@ -11,9 +11,9 @@ const {
 } = require('./queryFunctions');
 
 (async () => {
-    // await dropAllTables();
-    // await createUsersTables();
-    // await createProductsTable();
+    await dropAllTables();
+    await createUsersTables();
+    await createProductsTable();
     // await createFavoritesTable();
     // await createMessagesTable();
     // await insertIntoUsers();
