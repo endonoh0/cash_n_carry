@@ -12,14 +12,20 @@ $(document).ready(function() {
 
 // Insert the products into the DOM
 const renderProducts = function(products) {
-    const $container = $('#products-container');
     let id = $('.product_id').text().trim();
+    console.log(id);
+    console.log('PRODUCTS', products);
+    const $container = $('#products-container');
     $container.prepend(createProductElement(products[id - 1]));
+    // store cookie -> refacotor to helper function later
+    const storageId = `productId${id}`
+    if (localStorage.favorited && localStorage[storageId] === id) {
+        $(".fa-heart").addClass('favorited');
+    }
 };
 
 // Insert products inputs into html template
 const createProductElement = function(product) {
-    console.log(product);
     return $(`
     <div id="wrapper">
         <div class="column" id="product-header">

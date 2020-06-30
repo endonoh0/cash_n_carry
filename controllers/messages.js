@@ -13,9 +13,9 @@ module.exports = (io) => {
                 const socketID = socket.id;
 
                 _io.emit('chat message', msg);
-
+                // product code is hard-cdded
                 const column = 'user_id, body, product_id';
-                const values = [1, `'${msg}'`, 3];
+                const values = [req.session.userId, `'${msg}'`, 3];
                 // const values = [req.session.id, msg, req.params.id];
 
                 message.insert(column, values);

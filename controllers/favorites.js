@@ -6,11 +6,9 @@ module.exports = {
 
     store: async (req, res) => {
         const favorites = { clickTime: new Date() };
-        console.log("FAVORITE: ",favorites);
         
         const userId = req.session.userId;
         const productId = req.body.$product_id;
-        console.log(userId, productId);
 
         const values = [userId, productId];
 

@@ -32,8 +32,8 @@ const createProducts = `
     description TEXT NOT NULL,
     location VARCHAR(255) NOT NULL,
     active BOOLEAN NOT NULL DEFAULT TRUE,
-    cover_photo_url VARCHAR(255),
-    product_photo_url VARCHAR(255)
+    cover_photo_url VARCHAR(255) DEFAULT https://images.craigslist.org/00505_lEAVJNgFcBf_0dy0dy_600x450.jpg,
+    product_photo_url VARCHAR(255) DEFAULT https://images.craigslist.org/00505_lEAVJNgFcBf_0dy0dy_600x450.jpg
   )
 `;
 

@@ -30,8 +30,6 @@ class Model {
           VALUES (${numOfValues})
           RETURNING *;
       `;
-      console.log(values.length);
-      console.log(query);
         this.pool.query(query, values).then((res) => res.rows);
     //     const query = `
     //     INSERT INTO ${this.table} (${columns})
