@@ -9,6 +9,8 @@ const express       = require('express');
 const bodyParser    = require('body-parser');
 
 const app           = express();
+const http          = require('http').createServer(app);
+const io            = require('socket.io')(http);
 
 app.use(morgan('dev'));
 
@@ -27,6 +29,7 @@ app.use(express.static('public'));
 
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/products');
+const messageRouter = require('./routes/messages');
 
 // API endpoints
 app.use('/api', indexRouter(database));
@@ -34,6 +37,8 @@ app.use('/api', indexRouter(database));
 // Product routes
 app.use('/', productRouter(database));
 
+// Messaeg routes
+app.use('/messages/', messageRouter(database, io));
 
 // // Home page
 // app.get('/', (req, res) => {
@@ -41,6 +46,11 @@ app.use('/', productRouter(database));
 // });
 
 
-app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`);
+http.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
 });
+// app.listen(PORT, () => {
+//     console.log(`Example app listening on port ${PORT}`);
+// });
+
+// module.exports = io;

@@ -1,0 +1,19 @@
+<html>
+
+<head>
+  <title>Socket.IO chat</title>
+  <%- include('./partials/_head') %>
+  </style>
+</head>
+
+<body>
+  <footer><%- include('./partials/_footer') %></footer>
+  <ul id="messages"></ul>
+  <form action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+  </form>
+  <script src="socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="/scripts/components/load-messages.js"></script>
+</body>
+
+</html>
