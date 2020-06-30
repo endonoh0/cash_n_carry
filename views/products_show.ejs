@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><%- include('./partials/_head') %></head>
+<head>
+  <%- include('./partials/_head') %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
 
 <body>
     <header><%- include('./partials/_header') %></header>
 
-    <h1>Product <%= id %></h1>
+    <main>
+        <div id="products-container">
+
+        </div>
+        <div class="id">
+          <%= id %>
+        </div>
+
+    </main>
 
     <footer><%- include('./partials/_footer') %></footer>
+    <script type="text/javascript" src="/scripts/components/product.js"></script>
 </body>
 </html>

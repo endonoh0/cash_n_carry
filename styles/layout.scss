@@ -219,6 +219,64 @@ article {
   float: right;
 }
 
+// product show
+
+#wrapper {
+    width: 1000px;
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    display: flex;
+    justify-content: center;
+    background: #dbc9cb;
+}
+
+.flexbox
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#product-header
+{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  box-shadow: none;
+  text-align: center;
+}
+
+.w-full
+{
+  width: 100%;
+}
+
+// footer
+
+.footer_menu_container {
+  font-size: 1rem;
+  display: flex;
+  padding: 2% 10%;
+  .footer_menu {
+    width: 25%;
+  }
+
+  .footer_category {
+    font-weight: bold;
+  }
+
+  .footer_content {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+#copyright {
+  font-size: 1rem;
+  text-align: center;
+}
+
 // Media
 
 @media (max-width:1200px)

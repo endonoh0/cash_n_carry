@@ -27,6 +27,7 @@ const createProducts = `
     id SERIAL PRIMARY KEY NOT NULL,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     title VARCHAR(255) NOT NULL,
+    created_at NOT NULL DEFAULT NOW(),
     price BIGINT NOT NULL,
     description TEXT NOT NULL,
     location VARCHAR(255) NOT NULL,

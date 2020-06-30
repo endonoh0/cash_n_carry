@@ -19,6 +19,7 @@ module.exports = (db) => {
   // POST request for creating a product.
   router.post('/api/products', product.store);
 
+
   // POST request to delete product.
   router.post('/products/:id', product.destroy);
 
