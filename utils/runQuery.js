@@ -3,9 +3,11 @@ const {
     createUsersTables,
     createProductsTable,
     createFavoritesTable,
+    createMessagesTable,
     insertIntoUsers,
     insertIntoProducts,
-    insertIntoFavorites
+    insertIntoFavorites,
+    insertIntoMessages
 } = require('./queryFunctions');
 
 (async () => {
@@ -13,7 +15,10 @@ const {
     // await createUsersTables();
     // await createProductsTable();
     // await createFavoritesTable();
+    // await createMessagesTable();
     // await insertIntoUsers();
-    await insertIntoProducts();
+    // await insertIntoProducts();
     // await insertIntoFavorites();
+    await insertIntoMessages();
+
 })();

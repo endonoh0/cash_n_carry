@@ -40,10 +40,6 @@ app.use('/', productRouter(database));
 // Messaeg routes
 app.use('/messages/', messageRouter(database, io));
 
-// io.on('connection', (socket) => {
-//     console.log('a user connected');
-//   });
-
 // // Home page
 // app.get('/', (req, res) => {
 //     res.render('index');
@@ -57,4 +53,4 @@ http.listen(PORT, () => {
 //     console.log(`Example app listening on port ${PORT}`);
 // });
 
-module.exports = app;
+// module.exports = io;

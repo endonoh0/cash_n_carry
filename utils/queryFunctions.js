@@ -4,9 +4,11 @@ const {
     insertUsers,
     insertProducts,
     insertFavorites,
+    insertMessages,
     createUsers,
     createProducts,
-    createFavorites
+    createFavorites,
+    createMessage
 } = require('./queries');
 
 const executeQueryArray = async (arr) =>
@@ -45,13 +47,22 @@ const createFavoritesTable = () => {
 const insertIntoFavorites = () => {
     executeQueryArray([insertFavorites]);
 };
+const createMessagesTable = () => {
+    executeQueryArray([createMessage]);
+};
+
+const insertIntoMessages = () => {
+    executeQueryArray([insertMessages]);
+};
 
 module.exports = {
     dropAllTables,
     createUsersTables,
+    createMessagesTable,
     createProductsTable,
     createFavoritesTable,
     insertIntoUsers,
     insertIntoProducts,
-    insertIntoFavorites
+    insertIntoFavorites,
+    insertIntoMessages
 };

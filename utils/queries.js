@@ -55,11 +55,28 @@ const insertFavorites = `
   VALUES (1),
 `;
 
+const createMessage = `
+  CREATE TABLE IF NOT EXISTS messages(
+    id SERIAL PRIMARY KEY NOT NULL,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    body TEXT NOT NULL,
+    created_at DATE DEFAULT NOW(),
+    product_id INTEGER REFERENCES products(id) ON DELETE CASCADE
+  )
+`;
+
+const insertMessages = `
+INSERT INTO messages (user_id, body, product_id)
+VALUES (1, 'hey I like what youre selling?', 1)
+`;
+
 module.exports = {
     dropTable,
     createUsers,
     createProducts,
     createFavorites,
+    createMessage,
+    insertMessages,
     insertUsers,
     insertProducts,
     insertFavorites

@@ -1,14 +1,11 @@
-const express     = require('express');
-const router      = express.Router();
-const message     = require('../controllers/messages');
+const express         = require('express');
+const router          = express.Router();
 
 module.exports = (db, io) => {
 
+    const message     = require('../controllers/messages')(io);
+
     router.get('/', message.index);
-    io.on('connection', (socket) => {
-        socket.on('chat message', (msg) => {
-            console.log('message: ' + msg);
-        });
-    });
+
     return router;
 };
