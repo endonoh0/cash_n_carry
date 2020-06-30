@@ -8,7 +8,7 @@ const {
     createUsers,
     createProducts,
     createFavorites,
-    createMessage
+    createMessage,
 } = require('./queries');
 
 const executeQueryArray = async (arr) =>
@@ -64,5 +64,5 @@ module.exports = {
     insertIntoUsers,
     insertIntoProducts,
     insertIntoFavorites,
-    insertIntoMessages
+    insertIntoMessages,
 };

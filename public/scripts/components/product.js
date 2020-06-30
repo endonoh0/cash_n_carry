@@ -1,24 +1,24 @@
 $(document).ready(function () {
-  // Fetch products
-  $.ajax({
-    method: 'GET',
-    url: '/api/products',
-  }).done((data) => {
-    renderProducts(data.data)
-  });
+    // Fetch products
+    $.ajax({
+        method: 'GET',
+        url: '/api/products',
+    }).done((data) => {
+        renderProducts(data.data);
+    });
 });
 
 // Insert the products into the DOM
 const renderProducts = function (products) {
-  const $container = $('#products-container').empty();
-  let id = $('.id').text().trim();
+    const $container = $('#products-container').empty();
+    let id = $('.id').text().trim();
 
-  $container.prepend(createProductElement(products[id]));
-}
+    $container.prepend(createProductElement(products[id]));
+};
 
 // Insert products inputs into html template
 const createProductElement = function (product) {
-  return $(`
+    return $(`
     <div id="wrapper">
         <div class="column" id="product-header">
             <div class="flexbox">
@@ -35,4 +35,5 @@ const createProductElement = function (product) {
             book.</p>
         </div>
     </div>
-`)};
+`);
+};

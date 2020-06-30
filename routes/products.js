@@ -1,41 +1,35 @@
-const express     = require('express');
-const router      = express.Router();
-const product     = require('../controllers/products');
+const express = require('express');
+const router = express.Router();
+const product = require('../controllers/products');
 
 module.exports = (db) => {
+    router.get('/', (req, res) => {
+        res.render('index');
+    });
 
-  router.get('/', (req, res) => {
-    res.render('index');
-  });
+    // GET request for list of all product items.
+    router.get('/products', (req, res) => {
+        res.render('products');
+    });
 
-  // GET request for list of all product items.
-  router.get('/products', (req, res) => {
-    res.render('products');
-  });
+    // GET request for creating a product. Note this must come before routes that display book (uses id).
+    router.get('/products/new', product.create);
 
-  // GET request for creating a product. Note this must come before routes that display book (uses id).
-  router.get('/products/new', product.create);
+    // POST request for creating a product.
+    router.post('/api/products', product.store);
 
-  // POST request for creating a product.
-  router.post('/api/products', product.store);
+    // POST request to delete product.
+    router.post('/products/:id', product.destroy);
 
+    // POST request to update product.
+    router.post('/products/:id', product.update);
 
-  // POST request to delete product.
-  router.post('/products/:id', product.destroy);
-
-  // POST request to update product.
-  router.post('/products/:id', product.update);
-
-  // GET request for one product.
-  router.get('/products/:id', product.show);
-
-
+    // GET request for one product.
+    router.get('/products/:id', product.show);
 
     // router.get('/', (req, res) => { // products
     //     res.render('products');
     // });
-
-
 
     // router.get('/:id', (req, res) => {
     //     const productId = req.params.id;

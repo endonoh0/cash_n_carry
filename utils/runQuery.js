@@ -7,7 +7,7 @@ const {
     insertIntoUsers,
     insertIntoProducts,
     insertIntoFavorites,
-    insertIntoMessages
+    insertIntoMessages,
 } = require('./queryFunctions');
 
 (async () => {
@@ -20,5 +20,4 @@ const {
     // await insertIntoProducts();
     // await insertIntoFavorites();
     await insertIntoMessages();
-
 })();

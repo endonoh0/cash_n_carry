@@ -5,15 +5,13 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express         = require('express');
-const router          = express.Router();
+const express = require('express');
+const router = express.Router();
 
-const users           = require('../controllers/users');
-const products           = require('../controllers/products');
-
+const users = require('../controllers/users');
+const products = require('../controllers/products');
 
 module.exports = () => {
-
     // GET request to show all users.
     router.get('/users', users.index);
 

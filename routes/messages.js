@@ -1,9 +1,8 @@
-const express         = require('express');
-const router          = express.Router();
+const express = require('express');
+const router = express.Router();
 
 module.exports = (db, io) => {
-
-    const message     = require('../controllers/messages')(io);
+    const message = require('../controllers/messages')(io);
 
     router.get('/', message.index);
 

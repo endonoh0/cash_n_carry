@@ -1,5 +1,5 @@
-const { Model }       = require('../models/model');
-const message         = new Model('messages');
+const { Model } = require('../models/model');
+const message = new Model('messages');
 
 module.exports = (io) => {
     const that = {};
