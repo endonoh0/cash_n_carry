@@ -2,6 +2,19 @@ const { Model } = require('../models/model');
 const productModel = new Model('products');
 
 module.exports = {
+    filter: async (req, res) => {
+        let price = req.params.price;
+
+        try {
+            const data = await productModel.select('*', ` WHERE price < ${price}`);
+            console.log(data.rows);
+            // res.render('products', res.rows);
+            res.status(200).json({ data: data.rows });
+        } catch (err) {
+            res.status(200).json({ error: err.stack });
+        }
+    },
+
     // Display list of all ProductInstances.
     index: async (req, res) => {
         try {
@@ -17,8 +30,7 @@ module.exports = {
         try {
             const data = await productModel.select(
                 '*',
-                ` WHERE id = ${req.params.id}`,
-                res
+                ` WHERE id = ${req.params.id}`
             );
             // passed in cookie session user_id
             const userId = req.session.userId;

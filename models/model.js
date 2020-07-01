@@ -14,7 +14,6 @@ class Model {
         let query = `SELECT ${columns} FROM ${this.table}`;
         if (clause) query += clause;
         return this.pool.query(query);
-        // .then(res => res.rows);
     }
 
     async insert(columns, values, res) {

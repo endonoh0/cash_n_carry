@@ -30,4 +30,3 @@ const createProductElement = function (product) {
     </div>
   `);
 };
-{/* <img class="card-img" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap"> */}

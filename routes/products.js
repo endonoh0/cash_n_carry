@@ -18,6 +18,17 @@ module.exports = (db, io) => {
         res.render('products');
     });
 
+
+
+
+    router.get('/filter/:price', product.filter);
+
+
+
+
+
+
+
     // POST request for creating a product.
     router.post('/api/products', product.store);
 
