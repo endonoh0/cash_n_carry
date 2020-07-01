@@ -4,6 +4,7 @@ $(document).ready(function () {
         method: 'GET',
         url: '/api/products',
     }).done((data) => {
+      console.log(data);
         renderProducts(data.data);
     });
 });
@@ -21,7 +22,7 @@ const renderProducts = function (products) {
 const createProductElement = function (product) {
     return $(`
     <div class="column">
-      <img class="card-img" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+      <img class="card-img" src="${product.cover_photo_url}" alt="Card image cap">
       <div class="column-content">
         <h4 class="card-title">${product.title} ${product.price}</h4>
         <p class="info">${product.description}</p>

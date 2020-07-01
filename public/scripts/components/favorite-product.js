@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log('Client-side code running');
 
-    $(".fa-heart").addClass('favorited');
+    // $(".fa-heart").addClass('favorited');
     
     if (localStorage.favorited) {
         $(".fa-heart").addClass('favorited');

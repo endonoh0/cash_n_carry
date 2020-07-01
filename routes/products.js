@@ -18,16 +18,15 @@ module.exports = (db, io) => {
         res.render('products');
     });
 
+    // favorites
+    router.get('/products/favorites', (req, res) => {
+        res.render('product_favorites');
+    });
 
+    router.get('/api/favorites', product.favorite);
 
-
+    // filter price url
     router.get('/filter/:price', product.filter);
-
-
-
-
-
-
 
     // POST request for creating a product.
     router.post('/api/products', product.store);

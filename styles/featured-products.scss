@@ -1,0 +1,18 @@
+#carousel-container
+{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 500px;
+      height: 350px;
+  }
+  .carousel
+  {
+    width: 500px;
+  	height: 350px;
+  }
+

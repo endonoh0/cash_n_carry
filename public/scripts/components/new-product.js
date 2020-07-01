@@ -37,7 +37,7 @@ const createProductElement = function(product) {
                 <span>Posted 10 days ago...</span>
               </div>
             <h3>${product.title} (${product.location})</h3>
-            <img class="w-full" src="https://images.craigslist.org/00505_lEAVJNgFcBf_0dy0dy_600x450.jpg" alt="">
+            <img class="w-full" src="${product.product_photo_url}" alt="">
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
             dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
             book.</p>

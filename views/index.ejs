@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <%- include('./partials/_head') %>
+    <link rel="stylesheet" href="/styles/featured-products.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
     <header>
       <%- include('./partials/_header') %>
     </header>
 
+    <div id="carousel-container">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="background-color: red;">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href='/products'><img class="d-block" src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/b5cbf2b5-7e36-48f7-b239-d1429213839c-mafia-mansions-vincent-palermo-gangster.jpg" alt="First slide"></a>
+            <p>$5000</p>
+          </div>
+          <div class="carousel-item">
+            <a href='/products'><img class="d-block" src="https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1490894742/411924_KGDHX_8449_001_100_0000_Light.jpg" alt="Second slide"></a>
+            <p>$200</p>
+          </div>
+          <div class="carousel-item">
+            <a href='/products'><img class="d-block" src="https://vignette.wikia.nocookie.net/clubpenguin/images/b/ba/Gold_Bunny_Slippers_clothing_icon_ID_6209.PNG/revision/latest/scale-to-width-down/340?cb=20160228020544" alt="Third slide"></a>
+            <p>$100</p>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    <div>
 
 
     <footer><%- include('./partials/_footer') %></footer>
 
     <!-- Display all users -->
     <script type="text/javascript" src="/scripts/app.js"></script>
-
+      
   </body>
 </html>

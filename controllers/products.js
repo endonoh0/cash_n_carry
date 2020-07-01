@@ -1,14 +1,29 @@
-const { Model } = require('../models/model');
-const productModel = new Model('products');
+const { Model }         = require('../models/model');
+const productModel      = new Model('products');
 
 module.exports = {
-    filter: async (req, res) => {
-        let price = req.params.price;
 
+    favorite: async(req, res) => {
+        const currentUser = req.session.userId;
+        try {
+            const data = await productModel
+                .select(
+                    '*',
+                    ` JOIN favorites on product_id = products.id
+                          where favorites.user_id = ${currentUser};`
+                );
+            console.log(data.rows);
+
+            res.status(200).json({ data: data.rows });
+        } catch (err) {
+            res.status(200).json({ error: err.stack });
+        }
+    },
+
+    filter: async(req, res) => {
+        let price = req.params.price;
         try {
             const data = await productModel.select('*', ` WHERE price < ${price}`);
-            console.log(data.rows);
-            // res.render('products', res.rows);
             res.status(200).json({ data: data.rows });
         } catch (err) {
             res.status(200).json({ error: err.stack });
@@ -16,7 +31,7 @@ module.exports = {
     },
 
     // Display list of all ProductInstances.
-    index: async (req, res) => {
+    index: async(req, res) => {
         try {
             const data = await productModel.select('*');
             res.status(200).json({ data: data.rows });
@@ -26,7 +41,7 @@ module.exports = {
     },
 
     // Display detail page for a specific ProductInstance.
-    show: async (req, res) => {
+    show: async(req, res) => {
         try {
             const data = await productModel.select(
                 '*',
@@ -47,7 +62,7 @@ module.exports = {
     },
 
     // Handle ProductInstance create on POST.
-    store: async (req, res) => {
+    store: async(req, res) => {
         const {
             title,
             description,
@@ -57,7 +72,7 @@ module.exports = {
             cover_photo_url,
             product_photo_url
         } = req.body;
-
+        
         const columns = 'title, description, price, location, user_id, cover_photo_url, product_photo_url';
         const values = [title, description, price, location, req.session.userId, cover_photo_url, product_photo_url];
 
