@@ -4,34 +4,13 @@ const message = require('../controllers/messages');
 
 module.exports = (db, io) => {
     // const message = require('../controllers/messages')(io);
+    let id;
 
-    
     router.get('/', (req, res) => {
-        // io.on('connection', (socket) => {
-        //     console.log('user connected', socket.id);
-        //     socket.on('chat message', (msg) => {
-        //         const socketID = socket.id;
-    
-        //         io.emit('chat message', msg);
-        //         console.log(msg);
-        //         // product code is hard-cdded
-        //         const column = 'user_id, body, product_id';
-        //         const values = [req.session.userId, `'${msg}'`, 3];
-        //         // const values = [req.session.id, msg, req.params.id];
-    
-        //         // message.insert(column, values);
-        //         // console.log(msg);
-        //     });
-        //     socket.on('disconnect', () => {
-        //         console.log('disconnect: ');
-        //         socket.removeAllListeners();
-        //         socket.off('chat message', () =>{
-    
-        //         });
-        //     });
-        // });
         message.index(req, res);
+        id = req.session.userId;
     });
+
     // io.on('connection', (socket) => {
     //     console.log('user connected', socket.id);
     //     socket.on('chat message', (msg) => {
@@ -41,11 +20,11 @@ module.exports = (db, io) => {
     //         console.log(msg);
     //         // product code is hard-cdded
     //         const column = 'user_id, body, product_id';
-    //         const values = [req.session.userId, `'${msg}'`, 3];
+    //         const values = [id, `'${msg}'`, 3];
     //         // const values = [req.session.id, msg, req.params.id];
     
-    //         // message.insert(column, values);
-    //         // console.log(msg);
+    //         message.insert(column, values);
+    //         console.log(msg);
     //     });
     //     socket.on('disconnect', () => {
     //         console.log('disconnect: ');

@@ -8,20 +8,27 @@ $(function() {
         socket.emit('chat message', $('#chat-input').val());
 
         let msg = $("#chat-input").val();
+        $("#chat-input").val("");
 
         if (msg.trim() === '') {
             return false;
         }
     });
 
-
-    const generate_message = function(msg, type) {
+    const generate_message = function(data, type) {
+        const msg = data.message;
+        let url;
+        if (type === "self") {
+            url = 'https://cdn1.i-scmp.com/sites/default/files/styles/768x768/public/images/methode/2016/09/13/a4e70ee2-789a-11e6-aba3-c12eb464ff87_1280x720.jpg?itok=dzE-6DSF';
+        } else {
+            url = 'https://static.vibe.com/files/2011/11/vibevixen-biggieversace-compressed.jpg';
+        }
         INDEX++;
         // let str = "";
         let str = `
             <div id='cm-msg-${INDEX}' class="chat-msg ${type}">
                 <span class='msg-avatar'>
-                    <img src='https://cdn1.i-scmp.com/sites/default/files/styles/768x768/public/images/methode/2016/09/13/a4e70ee2-789a-11e6-aba3-c12eb464ff87_1280x720.jpg?itok=dzE-6DSF'>
+                    <img src=${url}>
                 </span>
                 <div class='cm-msg-text'>${msg}</div>
             </div>
@@ -36,15 +43,14 @@ $(function() {
         $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight }, 1000);
     };
 
-    // $(document).delegate(".chat-btn", "click", function() {
-    //     let value = $(this).attr("chat-value");
-    //     let name = $(this).html();
-    //     $("#chat-input").attr("disabled", false);
-    // });
-
     // listen for chat messenger emit 
-    socket.on('chat message', function (msg) {
-        // $('#messages').append($('<li>').text(str));
-        generate_message(msg, 'self');
+    socket.on('chat message', function (data) {
+        let type;
+        if (data.username === socket.id) {
+            type = "self";
+        } else {
+            type = "user";
+        }
+        generate_message(data, type);
     });
 });

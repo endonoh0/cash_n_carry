@@ -3,9 +3,6 @@
 
 <head>
   <%- include('./partials/_head') %>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css">
-
 </head>
 
 <body>
@@ -20,14 +17,14 @@
           <p class="user_id"><%= userId %></p>
         </div>
 
-        <%- include('./messages.ejs') %>
+        <%- include('./partials/_messenger') %>
     </main>
 
     <footer><%- include('./partials/_footer') %></footer>
-    <!-- <script src='socket.io/socket.io.js'></script> -->
 
-    <script>const socket = io('/my-namespace');</script>
-    <!-- <script>const socket = io()</script> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/scripts/components/toggle-message.js"></script>
+    <script type="text/javascript" src="/scripts/components/message-panel.js"></script>
     <script type="text/javascript" src="/scripts/components/new-product.js"></script>
     <script type="text/javascript" src="/scripts/components/favorite-product.js"></script>
 

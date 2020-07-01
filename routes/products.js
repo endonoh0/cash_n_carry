@@ -1,8 +1,13 @@
-const express = require('express');
-const router = express.Router();
-const product = require('../controllers/products');
+const express           = require('express');
+const router            =  express.Router();
+const product           = require('../controllers/products');
+
+const { Model }         = require('../models/model');
+const message           = new Model('messages');
 
 module.exports = (db, io) => {
+    let id;
+    let productId;
     
     router.get('/', (req, res) => {
         res.render('index');
@@ -20,66 +25,42 @@ module.exports = (db, io) => {
     router.get('/products/new', product.create);
     
     // GET request for one product.
-    router.get('/products/:id', product.show);
+    router.get('/products/:id', (req, res) => {
+        product.show(req, res);
+        id = req.session.userId;
+        productId = req.params.Id;
+    });
 
+    
     // POST request to delete product.
     router.post('/products/:id', product.destroy);
 
     // POST request to update product.
     router.post('/products/:id', product.update);
 
-    // router.get('/', (req, res) => { // products
-    //     res.render('products');
-    // });
-
-    // router.get('/:id', (req, res) => {
-    //     const productId = req.params.id;
-    //     res.render('products_show', { productId });
-    // });
-
-    // router.get('/:id/messages', (req, res) => {
-    //     res.render('messages');
-    // });
-
-    // router.post('/', (req, res) => {
-    //     const userId = req.session.userId;
-    //     const {
-    //         title,
-    //         description,
-    //         price,
-    //         quantity,
-    //         location,
-    //         cover_photo_url,
-    //         product_photo_url,
-    //         seller_id,
-    //         active,
-    //         featured,
-    //     } = { ...req.body, seller_id: userId, active: true, featured: true };
-    //     db.query(
-    //         `INSERT INTO products (title, description, price, quantity, location, cover_photo_url, product_photo_url, seller_id, active, featured)
-    //   VALUES ($1, $2, $3, $4, $5, $6, $7)
-    //   RETURNING *;`,
-    //         [
-    //             title,
-    //             description,
-    //             price,
-    //             quantity,
-    //             location,
-    //             cover_photo_url,
-    //             product_photo_url,
-    //             seller_id,
-    //             active,
-    //             featured,
-    //         ]
-    //     );
-    // });
-
-    // router.post('/:id/messages', (req, res) => {});
-
-    // //Overloaded methods
-    // router.patch('/:id', (req, res) => {});
-
-    // router.delete('/:id', (req, res) => {});
-
+    io.on('connection', (socket) => {
+        console.log('user connected', socket.id);
+        socket.on('chat message', (msg) => {
+            const socketID = socket.id;
+    
+            io.emit('chat message', {
+                username: socket.id,
+                message: msg
+            });
+            console.log(msg);
+            
+            const column = 'user_id, body, product_id';
+            const values = [id, `'${msg}'`, productId];
+    
+            message.insert(column, values);
+        });
+        socket.on('disconnect', () => {
+            console.log('disconnect: ');
+            socket.removeAllListeners();
+            socket.off('chat message', () =>{
+    
+            });
+        });
+    });
     return router;
 };

@@ -12,6 +12,9 @@ const cookieSession = require('cookie-session');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
+// const io = require('socket.io')(http, {
+//     path:'/products/'
+// });
 
 app.use(morgan('dev'));
 
@@ -35,11 +38,6 @@ app.use(
     })
 );
 app.use(express.static('public'));
-
-const nsp = io.of('/my-namepsace');
-nsp.prependOnceListener('connection', function(socket) {
-    console.log("user has connected", socket.id);
-});
 
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/products');
