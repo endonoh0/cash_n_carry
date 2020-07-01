@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const product = require('../controllers/products');
 
-module.exports = (db) => {
+module.exports = (db, io) => {
+    
     router.get('/', (req, res) => {
         res.render('index');
     });

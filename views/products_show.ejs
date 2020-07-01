@@ -20,11 +20,16 @@
           <p class="user_id"><%= userId %></p>
         </div>
 
+        <%- include('./messages.ejs') %>
     </main>
 
     <footer><%- include('./partials/_footer') %></footer>
-    <script type="text/javascript" src="/scripts/components/product.js"></script>
-    <script type="text/javascript" src="/scripts/components/favorites.js"></script>
+    <!-- <script src='socket.io/socket.io.js'></script> -->
+
+    <script>const socket = io('/my-namespace');</script>
+    <!-- <script>const socket = io()</script> -->
+    <script type="text/javascript" src="/scripts/components/new-product.js"></script>
+    <script type="text/javascript" src="/scripts/components/favorite-product.js"></script>
 
 </body>
 </html>

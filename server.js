@@ -36,6 +36,11 @@ app.use(
 );
 app.use(express.static('public'));
 
+const nsp = io.of('/my-namepsace');
+nsp.prependOnceListener('connection', function(socket) {
+    console.log("user has connected", socket.id);
+});
+
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/products');
 const messageRouter = require('./routes/messages');
@@ -44,15 +49,18 @@ const messageRouter = require('./routes/messages');
 app.use('/api', indexRouter(database));
 
 // Product routes
-app.use('/', productRouter(database));
+app.use('/', productRouter(database, io));
 
 // Messaeg routes
-app.use('/messages/', messageRouter(database, io));
+app.use('/messages', messageRouter(database, io));
 
 // // Home page
 // app.get('/', (req, res) => {
 //     res.render('index');
 // });
+// io.on('connection', () =>{
+//     console.log('a user is connected')
+//   });
 
 http.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
