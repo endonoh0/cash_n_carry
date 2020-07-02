@@ -21,7 +21,7 @@ class Model {
         return this.pool.query(query);
     }
 
-    async insert(columns, values, res) {
+    async insert(columns, values) {
         let numOfValues = '';
         for (let i = 0; i < values.length; i++) {
             numOfValues += `$${i + 1}`;

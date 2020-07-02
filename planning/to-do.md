@@ -23,7 +23,7 @@
 [X] hide the id's
 - add created_at for "posted at x days ago"... (replace hard-code)
 
-## like button
+## like button (done)
 - unfavorite the like button
 
 ## reply button

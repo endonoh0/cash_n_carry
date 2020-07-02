@@ -28,7 +28,7 @@ const renderProducts = function (products, sessionUser) {
     }
     // store cookie -> refacotor to helper function later
     const storageId = `productId${id}`;
-    if (localStorage.favorited && localStorage[storageId] === id) {
+    if (Number(localStorage[storageId]) === id) {
         $('.fa-heart').addClass('favorited');
     }
 };
