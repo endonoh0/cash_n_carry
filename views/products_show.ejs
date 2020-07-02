@@ -5,6 +5,7 @@
   <%- include('./partials/_head') %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
     <header><%- include('./partials/_header') %></header>
@@ -19,12 +20,9 @@
           <p class="user_id invisible"><%= userId %></p>
         </div>
         <%- include('./partials/_messenger') %>
-
-        <!-- <div id='error' class='invisible'></div> -->
     </main>
 
     <footer><%- include('./partials/_footer') %></footer>
-
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/scripts/components/new-product.js"></script>
     <script type="text/javascript" src="/scripts/components/add-favorite.js"></script>

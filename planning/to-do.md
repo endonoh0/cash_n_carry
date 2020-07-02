@@ -13,10 +13,10 @@
 
 # All Product Page
 
-## Filter
-- margin/spacing above
-- mouse slider padding is too small
-- display a $ sign
+## Filter (DONE)
+[X] margin/spacing above
+[X] mouse slider padding is too small
+[X] display a $ sign
 
 # Product Show (DONE)
 [X] disable X button
@@ -37,7 +37,7 @@
 
 - delete my messages link
 - fix the text input for cover/product photo url
-- convert jQuery hacky way to get current user to: 
+- convert jQuery hacky way to get current user to:
     - res.status(200).json({ data: data.rows, currentUser: req.session.userId });
 
 # CSS FEATURES TBH
