@@ -4,7 +4,7 @@ $(document).ready(function () {
 
   const element = $('nav ul.panels a');
 
-  let result = element.filter(function () {
+  element.filter(function () {
     return $(this).prop('href') === url;
   }).addClass('active');
 });

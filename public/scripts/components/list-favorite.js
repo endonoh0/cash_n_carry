@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // Fetch products
+
     $.ajax({
         method: 'GET',
         url: '/api/favorites',
