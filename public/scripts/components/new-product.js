@@ -31,10 +31,12 @@ const renderProducts = function (products, sessionUser) {
     if (Number(localStorage[storageId]) === id) {
         $('.fa-heart').addClass('favorited');
     }
+    $('.column').css('background-color', 'transparent');
 };
 
 // Insert products inputs into html template
 const createProductElement = function (product) {
+
     return $(`
     <div id="wrapper">
         <div class="column" id="product-header">

@@ -26,7 +26,7 @@ const createCarouselElement = function(product, index) {
 
     element += `
             <a href='/products/${product.id}'><img class="d-block" src="${product.cover_photo_url}" alt="${product.title}"></a>
-            <p>$${product.price}</p>
+            <p class="price">$${product.price}</p>
         </div>`;
     console.log(element);
     return element;
