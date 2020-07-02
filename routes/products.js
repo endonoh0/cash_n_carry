@@ -41,13 +41,10 @@ module.exports = (db, io) => {
         productId = req.params.Id;
     });
 
-    
-    // POST request to delete product.
-    router.post('/products/:id', product.destroy);
-
     // POST request to update product.
     router.post('/products/:id', product.update);
 
+    // Io messenger
     io.on('connection', (socket) => {
         console.log('user connected', socket.id);
         socket.on('chat message', (msg) => {

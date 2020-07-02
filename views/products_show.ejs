@@ -9,14 +9,14 @@
     <header><%- include('./partials/_header') %></header>
 
     <main>
-
+      <button>x</button>
         <div id="products-container">
         </div>
+        <div id="button-container"></div>
         <div>
           <p class="product_id"><%= id %></p>
           <p class="user_id"><%= userId %></p>
         </div>
-
         <%- include('./partials/_messenger') %>
     </main>
 
@@ -27,6 +27,6 @@
     <script type="text/javascript" src="/scripts/components/message-panel.js"></script>
     <script type="text/javascript" src="/scripts/components/new-product.js"></script>
     <script type="text/javascript" src="/scripts/components/favorite-product.js"></script>
-
+    <script type="text/javascript" src="/scripts/components/product-sold.js"></script>
 </body>
 </html>

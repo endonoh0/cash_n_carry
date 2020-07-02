@@ -10,7 +10,7 @@ module.exports = {
                 .select(
                     '*',
                     ` JOIN favorites on product_id = products.id
-                          where favorites.user_id = ${currentUser};`
+                          where favorites.user_id = ${currentUser} AND active = true;`
                 );
             console.log(data.rows);
 
@@ -23,7 +23,7 @@ module.exports = {
     filter: async(req, res) => {
         let price = req.params.price;
         try {
-            const data = await productModel.select('*', ` WHERE price < ${price}`);
+            const data = await productModel.select('*', ` WHERE price < ${price} AND active = true`);
             res.status(200).json({ data: data.rows });
         } catch (err) {
             res.status(200).json({ error: err.stack });
@@ -33,7 +33,7 @@ module.exports = {
     // Display list of all ProductInstances.
     index: async(req, res) => {
         try {
-            const data = await productModel.select('*');
+            const data = await productModel.select('*', ` WHERE active = true`);
             res.status(200).json({ data: data.rows });
         } catch (err) {
             res.status(200).json({ error: err.stack });
@@ -90,8 +90,19 @@ module.exports = {
     },
 
     // Handle ProductInstance update on POST.
-    update: (req, res) => {
-        res.send('NOT IMPLEMENTED: ProductInstance list');
+    update: async(req, res) => {
+        const currentUser = req.session.userId;
+        try {
+            const data = await productModel.update(
+                'active',
+                false,
+                `WHERE user_id = ${req.params.id}`
+            );
+            
+            res.status(200).json({ data: data.rows });
+        } catch (err) {
+            res.status(200).json({ error: err.stack });
+        }
     },
 };
 

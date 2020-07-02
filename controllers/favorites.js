@@ -5,8 +5,6 @@ const favorite          = new Model('favorites');
 module.exports = {
 
     store: async (req, res) => {
-        const favorites = { clickTime: new Date() };
-        
         const userId = req.session.userId;
         const productId = req.body.$product_id;
 

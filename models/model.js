@@ -10,6 +10,11 @@ class Model {
         );
     }
 
+    async update(columns, values, clause) {
+        let query = `UPDATE ${this.table} SET ${columns} = ${values} ${clause}`;
+        return this.pool.query(query);
+    }
+
     async select(columns, clause) {
         let query = `SELECT ${columns} FROM ${this.table}`;
         if (clause) query += clause;

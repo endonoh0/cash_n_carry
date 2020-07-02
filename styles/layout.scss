@@ -77,7 +77,7 @@ nav ul li a:hover
 {
   width: 100%;
   max-width: 680px;
-  margin: 100px auto 0;
+  margin: auto;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -225,10 +225,8 @@ article {
 
 #wrapper {
     width: 1000px;
-    position: absolute;
-    left: 50%;
-    margin-left: -500px;
     display: flex;
+    margin: auto;
     justify-content: center;
     background: #dbc9cb;
 }
@@ -258,6 +256,13 @@ article {
 {
   color: red;
 }
+
+#button-container
+{
+  display: flex;
+  justify-content: center;
+}
+
 // footer
 
 .footer_menu_container {

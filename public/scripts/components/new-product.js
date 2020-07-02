@@ -13,10 +13,16 @@ $(document).ready(function() {
 // Insert the products into the DOM
 const renderProducts = function(products) {
     let id = $('.product_id').text().trim();
-    console.log(id);
-    console.log('PRODUCTS', products);
+    const $userId = $('.user_id').text();
     const $container = $('#products-container');
+    const $button = $('#button-container');
+
     $container.prepend(createProductElement(products[id - 1]));
+    
+    // sold button append if product_id = user_id in session
+    if (id === $userId) {
+        $button.prepend('<button>SOLD</button>');
+    }
     // store cookie -> refacotor to helper function later
     const storageId = `productId${id}`
     if (localStorage.favorited && localStorage[storageId] === id) {
