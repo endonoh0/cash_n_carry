@@ -4,7 +4,7 @@ $(document).ready(function () {
    */
     $.ajax({
         method: 'GET',
-        url: '/api/products',
+        url: `/api${pathname}`,
     }).done((data) => {
       console.log(typeof data, data);
         renderProducts(data.data);
@@ -12,20 +12,22 @@ $(document).ready(function () {
 });
 
 // Insert the products into the DOM
-const renderProducts = function (products) {
-    let id = $('.product_id').text().trim();
-    const $userId = $('.user_id').text();
+const renderProducts = function (products, sessionUser) {
+    let id = products.id;
+    const userId = Number(sessionUser);
     const $container = $('#products-container');
     const $button = $('#button-container');
 
-    $container.prepend(createProductElement(products[id - 1]));
+    $container.prepend(createProductElement(products));
 
     // sold button append if product_id = user_id in session
-    if (id === $userId) {
+    // sold button append if product's user_id = user's id in session
+    if (products.user_id === userId) {
         $button.prepend('<button>SOLD</button>');
     }
     // store cookie -> refacotor to helper function later
     const storageId = `productId${id}`;
+    console.log(storageId);
     if (localStorage.favorited && localStorage[storageId] === id) {
         $('.fa-heart').addClass('favorited');
     }
@@ -33,7 +35,6 @@ const renderProducts = function (products) {
 
 // Insert products inputs into html template
 const createProductElement = function (product) {
-  console.log(product.created_at);
     return $(`
     <div id="wrapper">
         <div class="column" id="product-header">
@@ -51,8 +52,3 @@ const createProductElement = function (product) {
     </div>
 `);
 };
-
-// $(document.body).on("click", "button", function(){
-//     alert("test");
-//     $("button").css("color","red");
-// })

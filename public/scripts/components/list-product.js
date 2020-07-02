@@ -14,6 +14,7 @@ const renderProducts = function (products) {
   const $container = $('.container').empty();
 
   products.forEach(function (product) {
+    console.log(product);
       $container.prepend(createProductElement(product));
       if (product.active === true) {
       }
