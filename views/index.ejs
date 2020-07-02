@@ -1,51 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <%- include('./partials/_head') %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/featured-products.css" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
   </head>
-  <body>
-    <header>
+
+  <body class="landing is-preload">
+    <!-- Header -->
+    <header style="margin: 1.5rem auto;">
       <%- include('./partials/_header') %>
     </header>
-    <div class="container flex-column" style="background-color: blue;">
-      <h2>Featured Items</h2>
 
-      <div id="carousel-container">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <a href='/products'><img class="d-block" src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/b5cbf2b5-7e36-48f7-b239-d1429213839c-mafia-mansions-vincent-palermo-gangster.jpg" alt="First slide"></a>
-            </div>
-            <div class="carousel-item">
-              <a href='/products'><img class="d-block" src="https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1490894742/411924_KGDHX_8449_001_100_0000_Light.jpg" alt="Second slide"></a>
-            </div>
-            <div class="carousel-item">
-              <a href='/products'><img class="d-block" src="https://vignette.wikia.nocookie.net/clubpenguin/images/b/ba/Gold_Bunny_Slippers_clothing_icon_ID_6209.PNG/revision/latest/scale-to-width-down/340?cb=20160228020544" alt="Third slide"></a>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+      <!-- Banner -->
+      <section id="banner">
+        <div class="inner">
+          <h2>Cash N' Carry</h2>
+          <ul class="actions special">
+            <li><a href="/products" class="button primary">Got Cash</a></li>
+            <li><a href="/products/new" class="button primary">Get Cash</a></li>
+          </ul>
         </div>
-      </div>
+        <a href="#one" class="more scrolly">Featured Items</a>
+      </section>
 
+      <!-- One -->
+      <section id="one" class="wrapper style1 special">
+        <div id="carousel-container">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a href='/products'><img class="d-block"
+                    src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/b5cbf2b5-7e36-48f7-b239-d1429213839c-mafia-mansions-vincent-palermo-gangster.jpg"
+                    alt="First slide"></a>
+              </div>
+              <div class="carousel-item">
+                <a href='/products'><img class="d-block"
+                    src="https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1490894742/411924_KGDHX_8449_001_100_0000_Light.jpg"
+                    alt="Second slide"></a>
+              </div>
+              <div class="carousel-item">
+                <a href='/products'><img class="d-block"
+                    src="https://vignette.wikia.nocookie.net/clubpenguin/images/b/ba/Gold_Bunny_Slippers_clothing_icon_ID_6209.PNG/revision/latest/scale-to-width-down/340?cb=20160228020544"
+                    alt="Third slide"></a>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <!-- 						<div class="inner">
+  							<header class="major">
+  								<h2>Featured Items<br />
+  								eget augue amet aliquet nisl cep donec</h2>
+  								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
+  								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
+  							</header>
+  							<ul class="icons major">
+  								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
+  								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
+  								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
+  							</ul>
+  						</div> -->
+      </section>
     </div>
 
-
-    <button id="test">TESTER</button>
+    <!-- Scripts -->
     <footer><%- include('./partials/_footer') %></footer>
     <script type="text/javascript" src="/scripts/components/list-feature.js"></script>
-
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 
   </body>
 </html>
