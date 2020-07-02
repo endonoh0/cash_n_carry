@@ -1,9 +1,354 @@
-// See: https://sass-lang.com/
-
 body {
-  background-color: #EEE;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f0e046;
+  // background-image: url(https://images3.alphacoders.com/621/621682.jpg);
+  // background-attachment: fixed;
+}
 
-  h1 {
-    color: #244751;
+header
+{
+  position: relative;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+
+.logo
+{
+  color: #069370;
+  height: 60px;
+  font-size: 36px;
+  line-height: 60px;
+  padding: 0 20px;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav
+{
+  float: right;
+}
+
+.clearfix
+{
+  clear: both;
+}
+
+nav ul
+{
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li
+{
+  list-style: none;
+}
+
+nav ul li a
+{
+  display: block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #262626;
+}
+
+nav ul li a.active,
+nav ul li a:hover
+{
+  background: #069370;
+  color: #fff;
+  transition: 0.5s;
+}
+
+// Form
+
+.wrapper
+{
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content
+{
+  text-align: center;
+}
+
+.content h1
+{
+  letter-spacing: 1px;
+}
+
+.form
+{
+  width: 100%;
+  margin: 25px 0;
+}
+
+.top-form,
+.middle-form,
+.bottom-form
+{
+  width: 100%;
+  min-height: 65px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.form input[type="text"],
+.form textarea
+{
+  padding: 15px 5px;
+  box-sizing: border-box;
+  width: 100%;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form input:focus,
+.form textarea:focus
+{
+  border-color: #4ca1af;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.0125), 0 0 8px rgba(76, 161, 175, 0.5);
+}
+
+.form .label
+{
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.top-form .inner-form
+{
+  width: 29.9%;
+  float: left;
+  margin-right: 5%;
+}
+
+.top-form .inner-form:last-child
+{
+  margin-right: 0;
+}
+
+.middle-form
+{
+  clear: both;
+}
+
+.bottom-form textarea
+{
+  height: 120px;
+}
+
+.btn
+{
+  background: #4ca1af;
+  width: 200px;
+  padding: 10px 0;
+  border-radius: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+// products
+
+article {
+  display: flex;
+  justify-content: center;
+}
+
+.container
+{
+  width: 90vw;
+  // width: 1200px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.column
+{
+    max-width: 20rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin: 3rem 0;
+}
+
+.card-img
+{
+    width: 100%;
+    height: 300px
+
+}
+
+.column-content
+{
+  display: flex;
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .card-title
+  {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.float-r
+{
+  float: right;
+}
+
+// product show
+
+#wrapper {
+    width: 1000px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    background: #dbc9cb;
+}
+
+.flexbox
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#product-header
+{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  box-shadow: none;
+  text-align: center;
+}
+
+.w-full
+{
+  width: 100%;
+}
+
+.favorited 
+{
+  color: red;
+}
+
+#button-container
+{
+  display: flex;
+  justify-content: center;
+}
+
+// footer
+
+.footer_menu_container {
+  font-size: 1rem;
+  display: flex;
+  padding: 2% 10%;
+  .footer_menu {
+    width: 25%;
+  }
+
+  .footer_category {
+    font-weight: bold;
+  }
+
+  .footer_content {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+#copyright {
+  font-size: 1rem;
+  text-align: center;
+}
+
+// Media
+
+@media (max-width:1200px)
+{
+  header
+  {
+    margin: 20px;
+  }
+}
+
+@media (max-width:768px)
+{
+  .menu-toggle
+  {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    font-size: 30px;
+    color: #069370;
+  }
+  .menu-toggle::before
+  {
+    content: '\f0c9';
+    font-family: fontAwesome;
+    line-height: 40px;
+  }
+  .menu-toggle.active::before
+  {
+    content: '\f00d';
+  }
+  nav
+  {
+    display: none;
+  }
+  nav.active
+  {
+    display: block;
+    width: 100%;
+  }
+  nav.active ul
+  {
+    display: block;
+  }
+  nav.active ul li a
+  {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 460px)
+{
+  .wrapper
+  {
+    .top-form .inner-form
+    {
+      width: 100%;
+      margin: 5px 0;
+    }
   }
 }

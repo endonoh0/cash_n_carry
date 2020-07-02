@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash N' Carry</title>
+  <%- include('./partials/_head') %>
 </head>
+
 <body>
+<<<<<<< HEAD
     <form action="/products">
         <div>
             <label for="title">title</label>
             <input type="text" name="title" placeholder="Title">
+=======
+  <header><%- include('./partials/_header') %></header>
+
+  <form action="/api/products" method="POST">
+    <div class="wrapper">
+        <div class="content">
+            <h1>Product Form</h1>
+            <p>Whatcha' selling, Willis?</p>
         </div>
-        <div>
-            <label for="description">description</label>
-            <input type="text" name="description" placeholder="Description">
+
+        <div class="form">
+            <div class="top-form">
+                <div class="inner-form">
+                    <div class="label">Title</div>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="inner-form">
+                    <div class="label">Price</div>
+                    <input type="text" id="price" name="price" placeholder="$" required>
+                </div>
+                <div class="inner-form">
+                    <div class="label">Location</div>
+                    <input type="text" id="location" name="location" required>
+                </div>
+            </div>
+
+            <div class="middle-form">
+                <div class="inner-form">
+                    <div class="label">Description</div>
+                    <textarea
+                        name="description"
+                        id="Description"
+                        rows="8"
+                        required
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="bottom-form">
+                <div class="inner-form label">
+                    <label for="cover_photo_url">Add Cover Photo</label>
+                    <input type="text" class="form-control-file" id="cover_photo" name="cover_photo_url">
+                </div>
+                <div class="inner-form">
+                    <label for="cover_photo_url">Add Product Photo</label>
+                    <input type="text" class="form-control-file" id="product_photo" name="product_photo_url">
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Post</button>
+          </div>
+>>>>>>> feature/sold
         </div>
-        <div>
-            <label for="price">price</label>
-            <input type="number" name="price" placeholder="Price">
-        </div>
-        <div>
-            <label for="quantity">quantity</label>
-            <input type="number" name="quantity" placeholder="Quantity">
-        </div>
-        <div>
-            <label for="location">location</label>
-            <input type="text" name="location" placeholder="Location">
-        </div>
-        <div>
-            <label for="cover_photo_url">cover_photo_url</label>
-            <input type="text" name="cover_photo_url" placeholder="Cover Photo">
-        </div>
-        <div>
-            <label for="product_photo_url">product_photo_url</label>
-            <input type="text" name="product_photo_url" placeholder="Product Photo">
-        </div>
-        <div>
-            <button>Post</button>
-            <button>Cancel</button>
-        </div>
-    </form>
+  </form>
+
+    <footer><%- include('./partials/_footer') %></footer>
 </body>
 </html>

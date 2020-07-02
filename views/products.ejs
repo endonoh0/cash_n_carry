@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <title>Product</title>
+  <%- include('./partials/_head') %>
+  <link rel="stylesheet" href="/styles/filter-price.css" type="text/css" />
 </head>
 <body>
-    <h1>Product</h1>
+  <header><%- include('./partials/_header') %></header>
+  <main>
+    <div style="height: 100px;">
+      <p class="budget">What is your budget?</p>
+      <label for="range">
+        <input type="range" name="range" id="range" min="0" max="6000" step="5" value="3000" />
+      </label>
+      <output for="range" class="output"></output>
+    </div>
+
+
+    <article>
+      <div class="container" id="products-container"></div>
+    </article>
+
+  </main>
+
+  <footer><%- include('./partials/_footer') %></footer>
+  <script type="text/javascript" src="/scripts/components/product-listing.js"></script>
+  <script type="text/javascript" src="/scripts/components/price-filter.js"></script>
 </body>
 </html>

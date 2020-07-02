@@ -1,30 +1,37 @@
 {
-  "name": "node-skeleton",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "local": "./node_modules/.bin/nodemon -L --ignore public/",
-    "db:reset": "node bin/resetdb.js",
-    "lint": "./node_modules/.bin/eslint . --fix --ext .js --ignore-pattern node_modules --ignore-pattern public/"
-  },
-  "author": "Lighthouse Labs",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "chalk": "^2.4.2",
-    "dotenv": "^2.0.0",
-    "ejs": "^2.6.2",
-    "eslint": "^6.8.0",
-    "express": "^4.17.1",
-    "morgan": "^1.9.1",
-    "node-sass-middleware": "^0.11.0",
-    "pg": "^6.4.2",
-    "pg-native": "^3.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.1"
-  }
+    "name": "node-skeleton",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "local": "./node_modules/.bin/nodemon -L --ignore public/",
+        "db:reset": "node bin/resetdb.js",
+        "lint": "./node_modules/.bin/eslint . --fix --ext .js --ignore-pattern node_modules --ignore-pattern public/",
+        "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
+        "postpretty": "npm lint --fix",
+        "query": "node ./utils/runQuery"
+    },
+    "author": "Lighthouse Labs",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "chalk": "^2.4.2",
+        "cookie-session": "^1.4.0",
+        "dotenv": "^2.0.0",
+        "ejs": "^2.6.2",
+        "eslint": "^6.8.0",
+        "express": "^4.17.1",
+        "express-promise-router": "^4.0.1",
+        "morgan": "^1.9.1",
+        "node-sass-middleware": "^0.11.0",
+        "pg": "^6.4.2",
+        "pg-native": "^3.0.0",
+        "prettier": "^2.0.5",
+        "socket.io": "^2.3.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.1"
+    }
 }
