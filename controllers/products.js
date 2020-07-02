@@ -8,10 +8,9 @@ module.exports = {
             const data = await productModel.select(
                 '*',
                 ` JOIN favorites on product_id = products.id
-                          where favorites.user_id = ${currentUser} AND active = true;`
+                          where favorites.user_id = ${currentUser} AND products.active = true AND favorites.active = true;`
             );
             console.log(data.rows);
-
             res.status(200).json({ data: data.rows });
         } catch (err) {
             res.status(200).json({ error: err.stack });
