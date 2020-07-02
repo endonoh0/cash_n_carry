@@ -33,6 +33,7 @@ const renderProducts = function (products) {
 
 // Insert products inputs into html template
 const createProductElement = function (product) {
+  console.log(product.created_at);
     return $(`
     <div id="wrapper">
         <div class="column" id="product-header">
@@ -41,7 +42,7 @@ const createProductElement = function (product) {
                     <button id="reply" class="reply">Reply</button>
                     <button><i class="fa fa-heart"></i></button>
                 </div>
-                <span>Posted ${moment(product.created_at).format("ddd @ h:mmA")}</span>
+                <span>Posted on ${moment(product.created_at).format("ddd")}...</span>
               </div>
             <h3>${product.title} (${product.location})</h3>
             <img class="w-full" src="${product.product_photo_url}" alt="">

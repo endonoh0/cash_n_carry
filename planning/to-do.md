@@ -18,10 +18,10 @@
 - mouse slider padding is too small
 - display a $ sign
 
-# Product Show
+# Product Show (DONE)
 [X] disable X button
 [X] hide the id's
-- add created_at for "posted at x days ago"... (replace hard-code)
+[X] add created_at for "posted at x days ago"... (replace hard-code)
 
 ## like button
 - unfavorite the like button
