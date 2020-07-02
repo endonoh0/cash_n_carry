@@ -33,7 +33,9 @@ module.exports = {
     // Display list of all ProductInstances.
     index: async(req, res) => {
         try {
-            const data = await productModel.select('*', ` WHERE active = true`);
+            // const data = await productModel.select('*', ` WHERE active = true`);
+            const data = await productModel.select('*');
+
             res.status(200).json({ data: data.rows });
         } catch (err) {
             res.status(200).json({ error: err.stack });
@@ -72,7 +74,7 @@ module.exports = {
             cover_photo_url,
             product_photo_url
         } = req.body;
-        
+
         const columns = 'title, description, price, location, user_id, cover_photo_url, product_photo_url';
         const values = [title, description, price, location, req.session.userId, cover_photo_url, product_photo_url];
 
@@ -98,7 +100,7 @@ module.exports = {
                 false,
                 `WHERE user_id = ${req.params.id}`
             );
-            
+
             res.status(200).json({ data: data.rows });
         } catch (err) {
             res.status(200).json({ error: err.stack });

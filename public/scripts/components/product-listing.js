@@ -15,6 +15,8 @@ const renderProducts = function (products) {
 
     products.forEach(function (product) {
         $container.prepend(createProductElement(product));
+        if (product.active === true) {
+        }
     });
 };
 

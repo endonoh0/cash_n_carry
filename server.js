@@ -21,41 +21,6 @@ app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set('trust proxy', 1);
 app.use(bodyParser.urlencoded({ extended: true }));
-<<<<<<< HEAD
-app.use("/styles", sass({
-  src: __dirname + "/styles",
-  dest: __dirname + "/public/styles",
-  debug: true,
-  outputStyle: 'expanded'
-}));
-app.use(express.static("public"));
-
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
-const productsRoutes = require("./routes/products");
-
-// /products/endpoint
-const productRouter = express.Router();
-productsRoutes(productRouter, db);
-app.use('/products', productRouter);
-
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
-
-// Note: mount other resources here, using the same pattern above
-
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
-});
-=======
 app.use(
     '/styles',
     sass({
@@ -77,7 +42,6 @@ app.use(express.static('public'));
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/products');
 const messageRouter = require('./routes/messages');
->>>>>>> feature/sold
 
 // API endpoints
 app.use('/api', indexRouter(database));
