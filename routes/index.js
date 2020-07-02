@@ -21,6 +21,9 @@ module.exports = (db) => {
     // GET request to show all products.
     router.get('/products', products.index);
 
+    // GET request to one specific product.
+    router.get('/products/:id', products.index);
+
     // GET request for one user.
     router.get('/users/:id', users.show);
 

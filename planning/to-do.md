@@ -37,5 +37,7 @@
 
 - delete my messages link
 - fix the text input for cover/product photo url
+- convert jQuery hacky way to get current user to: 
+    - res.status(200).json({ data: data.rows, currentUser: req.session.userId });
 
 # CSS FEATURES TBH

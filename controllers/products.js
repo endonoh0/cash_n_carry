@@ -33,11 +33,15 @@ module.exports = {
 
     // Display list of all ProductInstances.
     index: async (req, res) => {
+        let idQuery;
+        if (req.params.id) {
+            idQuery = ` WHERE id = ${req.params.id}`;
+        }
         try {
             // const data = await productModel.select('*', ` WHERE active = true`);
-            const data = await productModel.select('*');
+            const data = await productModel.select('*', idQuery);
 
-            res.status(200).json({ data: data.rows });
+            res.status(200).json({ data: data.rows, currentUser: req.session.userId });
         } catch (err) {
             res.status(200).json({ error: err.stack });
         }
