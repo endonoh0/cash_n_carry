@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url("https://github.com/endonoh0/cash_n_carry/blob/feature/active-link/planning/background.png?raw=true");
   // background-color: #f0e046;
 //   background-image: url(https://images3.alphacoders.com/621/621682.jpg);
 //   background-attachment: fixed;
@@ -91,6 +90,8 @@ nav ul li a:hover
 
 .wrapper
 {
+  background-color: lightgrey;
+  border-radius: 15px;
   width: 100%;
   max-width: 680px;
   margin: auto;
