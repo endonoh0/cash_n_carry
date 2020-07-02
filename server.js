@@ -50,7 +50,7 @@ app.use('/api', indexRouter(database));
 app.use('/', productRouter(database, io));
 
 // Messaeg routes
-app.use('/messages', messageRouter(database, io));
+// app.use('/messages', messageRouter(database, io));
 
 // // Home page
 // app.get('/', (req, res) => {

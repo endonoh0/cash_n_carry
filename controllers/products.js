@@ -56,7 +56,7 @@ module.exports = {
             );
             // passed in cookie session user_id
             const userId = req.session.userId;
-            // console.log({...data.rows[0]});
+            console.log({...data.rows[0]});
             res.render('products_show', { ...data.rows[0], userId });
         } catch (err) {
             res.status(200).json({ error: err.stack });
