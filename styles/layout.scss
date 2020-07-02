@@ -76,6 +76,12 @@ nav ul li a:hover
   visibility: hidden;
 }
 
+.flex-column h2
+{
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
 #footer {
     position: absolute;
     bottom: 0;

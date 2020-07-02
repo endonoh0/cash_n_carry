@@ -23,13 +23,8 @@
 [X] hide the id's
 [X] add created_at for "posted at x days ago"... (replace hard-code)
 
-<<<<<<< HEAD
 ## like button (DONE)
 [X] unfavorite the like button
-=======
-## like button (done)
-- unfavorite the like button
->>>>>>> 244aa61acdfebcc14ee5fab5382e1c58e869ce89
 
 ## reply button (DONE)
 [X] implememnt the reply button that triggers the message
