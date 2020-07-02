@@ -107,15 +107,13 @@ module.exports = {
 
     // Handle ProductInstance update on POST.
     update: async (req, res) => {
-        const currentUser = req.session.userId;
         try {
             const data = await productModel.update(
                 'active',
                 false,
-                `WHERE user_id = ${req.params.id}`
+                `WHERE products.id = ${req.params.id}`
             );
-
-            res.status(200).json({ data: data.rows });
+            res.status(200);
         } catch (err) {
             res.status(200).json({ error: err.stack });
         }

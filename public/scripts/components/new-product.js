@@ -7,8 +7,7 @@ $(document).ready(function () {
         method: 'GET',
         url: `/api${pathname}`,
     }).done((data) => {
-      console.log(typeof data, data);
-        renderProducts(data.data[0]);
+        renderProducts(data.data[0], data.currentUser);
     });
 });
 
@@ -16,6 +15,7 @@ $(document).ready(function () {
 const renderProducts = function (products, sessionUser) {
     let id = products.id;
     const userId = Number(sessionUser);
+    console.log(userId);
     const $container = $('#products-container');
     const $button = $('#button-container');
 
