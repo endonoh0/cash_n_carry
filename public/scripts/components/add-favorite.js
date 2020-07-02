@@ -11,6 +11,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         const $product_id = $('.product_id').text();
+        const id = `productId${$product_id}`;
 
         // $.post(`/api/favorite/`, {$product_id});
 
@@ -18,12 +19,11 @@ $(document).ready(function () {
             $.post(`/api/favorite/`, { $product_id });
             $(this).addClass('favorited');
 
-            const id = `productId${$product_id}`;
-
-            localStorage.favorited = 'favorited';
             localStorage[id] = $product_id;
         } else {
             $(this).removeClass('favorited');
+            $.post(`/api/unfavorite/`, { $product_id });
+            localStorage.removeItem(id);
         }
     });
 });

@@ -27,7 +27,10 @@ module.exports = (db) => {
     // GET request for one user.
     router.get('/users/:id', users.show);
 
-    router.post('/favorite/', favorties.store);
+    router.post('/favorite/', favorties.favorite);
+
+    router.post('/unfavorite/', favorties.unfavorite);
+
     // router.post('/favorite/', (req, res) => {
     //     const favorite = { clickTime: new Date()};
     //     console.log(favorite);
