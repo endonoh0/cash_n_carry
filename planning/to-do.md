@@ -19,8 +19,8 @@
 - display a $ sign
 
 # Product Show
-- get ride of x button
-- "hide" user_id and product id via script
+[X] disable X button
+[X] hide the id's
 - add created_at for "posted at x days ago"... (replace hard-code)
 
 ## like button

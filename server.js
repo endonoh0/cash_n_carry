@@ -1,8 +1,8 @@
 // Database connection
-const { database } = require('./models/pool.js');
+const { database }              = require('./models/pool.js');
 
-const morgan = require('morgan');
-const sass = require('node-sass-middleware');
+const morgan                    = require('morgan');
+const sass                      = require('node-sass-middleware');
 
 const PORT = process.env.PORT || 8080;
 const express = require('express');
