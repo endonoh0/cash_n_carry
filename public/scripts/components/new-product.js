@@ -2,12 +2,13 @@ $(document).ready(function () {
   /**
    * Fetch all products
    */
+  const pathname = window.location.pathname;
     $.ajax({
         method: 'GET',
         url: `/api${pathname}`,
     }).done((data) => {
       console.log(typeof data, data);
-        renderProducts(data.data);
+        renderProducts(data.data[0]);
     });
 });
 
@@ -27,7 +28,6 @@ const renderProducts = function (products, sessionUser) {
     }
     // store cookie -> refacotor to helper function later
     const storageId = `productId${id}`;
-    console.log(storageId);
     if (localStorage.favorited && localStorage[storageId] === id) {
         $('.fa-heart').addClass('favorited');
     }
