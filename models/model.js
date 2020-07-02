@@ -22,7 +22,7 @@ class Model {
     }
 
     async insert(columns, values, res) {
-        let numOfValues = "";
+        let numOfValues = '';
         for (let i = 0; i < values.length; i++) {
             numOfValues += `$${i + 1}`;
             if (i + 1 !== values.length) {
@@ -35,12 +35,12 @@ class Model {
           RETURNING *;
       `;
         this.pool.query(query, values).then((res) => res.rows);
-    //     const query = `
-    //     INSERT INTO ${this.table} (${columns})
-    //     VALUES (${values})
-    //     RETURNING *;
-    // `;
-    //   this.pool.query(query).then((res) => res.rows);
+        //     const query = `
+        //     INSERT INTO ${this.table} (${columns})
+        //     VALUES (${values})
+        //     RETURNING *;
+        // `;
+        //   this.pool.query(query).then((res) => res.rows);
     }
 }
 

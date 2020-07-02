@@ -15,14 +15,14 @@ module.exports = (db, io) => {
     //     console.log('user connected', socket.id);
     //     socket.on('chat message', (msg) => {
     //         const socketID = socket.id;
-    
+
     //         io.emit('chat message', msg);
     //         console.log(msg);
     //         // product code is hard-cdded
     //         const column = 'user_id, body, product_id';
     //         const values = [id, `'${msg}'`, 3];
     //         // const values = [req.session.id, msg, req.params.id];
-    
+
     //         message.insert(column, values);
     //         console.log(msg);
     //     });
@@ -30,7 +30,7 @@ module.exports = (db, io) => {
     //         console.log('disconnect: ');
     //         socket.removeAllListeners();
     //         socket.off('chat message', () =>{
-    
+
     //         });
     //     });
     // });

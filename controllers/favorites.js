@@ -1,9 +1,7 @@
-const { Model }         = require('../models/model');
-const favorite          = new Model('favorites');
-
+const { Model } = require('../models/model');
+const favorite = new Model('favorites');
 
 module.exports = {
-
     store: async (req, res) => {
         const userId = req.session.userId;
         const productId = req.body.$product_id;
@@ -16,5 +14,5 @@ module.exports = {
         } catch (err) {
             res.status(200).json({ error: err.stack });
         }
-    }
+    },
 };

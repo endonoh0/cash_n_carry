@@ -1,10 +1,11 @@
-$(()=>{
-    $('#range').on("input", function() {
+$(() => {
+    $('#range')
+        .on('input', function () {
+            $('.output').val(this.value);
+        })
+        .trigger('change');
 
-        $('.output').val(this.value);
-    }).trigger("change");
-
-    $('#range').on("mouseup", function() {
+    $('#range').on('mouseup', function () {
         const $price = $('.output').val();
         $.ajax({
             method: 'GET',

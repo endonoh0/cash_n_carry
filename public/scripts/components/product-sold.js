@@ -1,6 +1,5 @@
-$(function() {
-
-    $(document.body).on("click", "#button-container", function(e) {
+$(function () {
+    $(document.body).on('click', '#button-container', function (e) {
         e.preventDefault();
 
         let product_id = $('.product_id').text().trim();
@@ -15,7 +14,6 @@ $(function() {
         //     renderProducts(data.data);
         // });
         // const $product_id = $('.product_id').text();
-        
 
         // // $.post(`/api/favorite/`, {$product_id});
 
@@ -32,8 +30,6 @@ $(function() {
         // }
     });
 
-
-    
     // const test = function () {
     //     const $button = $('button');
     //     $button.click(function () {

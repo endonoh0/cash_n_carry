@@ -1,10 +1,10 @@
 # Things to do
 
-# SOLD BUTTON
+# SOLD BUTTON (DONE)
 - the "BUY button" should be marked at "SOLD"
 - things marked favoriate and marked sold cannot be accessed
 
-# Home Page
+# Home Page (DONE)
 - hide 'eric', 'robert' ,'randy'
 - cash-n-carry logo links to the home page
 - implement img link to its product page

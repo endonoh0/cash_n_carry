@@ -1,14 +1,14 @@
-const express           = require('express');
-const router            =  express.Router();
-const product           = require('../controllers/products');
+const express = require('express');
+const router = express.Router();
+const product = require('../controllers/products');
 
-const { Model }         = require('../models/model');
-const message           = new Model('messages');
+const { Model } = require('../models/model');
+const message = new Model('messages');
 
 module.exports = (db, io) => {
     let id;
     let productId;
-    
+
     router.get('/', (req, res) => {
         res.render('index');
     });
@@ -33,7 +33,9 @@ module.exports = (db, io) => {
 
     // GET request for creating a product. Note this must come before routes that display book (uses id).
     router.get('/products/new', product.create);
-    
+
+    router.get('/products/featured', product.featured);
+
     // GET request for one product.
     router.get('/products/:id', (req, res) => {
         product.show(req, res);
@@ -49,24 +51,22 @@ module.exports = (db, io) => {
         console.log('user connected', socket.id);
         socket.on('chat message', (msg) => {
             const socketID = socket.id;
-    
+
             io.emit('chat message', {
                 username: socket.id,
-                message: msg
+                message: msg,
             });
             console.log(msg);
-            
+
             const column = 'user_id, body, product_id';
             const values = [id, `'${msg}'`, productId];
-    
+
             message.insert(column, values);
         });
         socket.on('disconnect', () => {
             console.log('disconnect: ');
             socket.removeAllListeners();
-            socket.off('chat message', () =>{
-    
-            });
+            socket.off('chat message', () => {});
         });
     });
     return router;

@@ -24,30 +24,27 @@ module.exports = (db) => {
     // GET request for one user.
     router.get('/users/:id', users.show);
 
-
     router.post('/favorite/', favorties.store);
     // router.post('/favorite/', (req, res) => {
     //     const favorite = { clickTime: new Date()};
     //     console.log(favorite);
     //     console.log(req.body.$product_id);
     //     res.sendStatus(200);
-        // const id = req.session.user_idj;
-        
-        // const queryString = `INSERT INTO favorites (user_id, product_id) VALUES ($1, $2) RETURN *;`;
-        // const values = [id, req.params.id];
+    // const id = req.session.user_idj;
 
-        // db.query(queryString, values)
-        //     .then(res => console.log(res.rows));
+    // const queryString = `INSERT INTO favorites (user_id, product_id) VALUES ($1, $2) RETURN *;`;
+    // const values = [id, req.params.id];
 
-        
+    // db.query(queryString, values)
+    //     .then(res => console.log(res.rows));
 
-        // db.query('clicks').save(click, (err, result) => {
-        //     if (err) {
-        //         return console.log(err);
-        //     }
-        //     console.log('click added to db');
-        //     res.sendStatus(201);
-        // });
+    // db.query('clicks').save(click, (err, result) => {
+    //     if (err) {
+    //         return console.log(err);
+    //     }
+    //     console.log('click added to db');
+    //     res.sendStatus(201);
+    // });
     // });
 
     return router;
