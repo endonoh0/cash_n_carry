@@ -37,7 +37,7 @@ const createProductElement = function (product) {
    } else {
     element += `
     </div>
-       <a href="/products/${product.id}" class="btn float-r sold">Sold</a>
+       <a class="btn float-r sold">Sold</a>
      </div>
      `;
    }
