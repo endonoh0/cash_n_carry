@@ -23,7 +23,7 @@ const renderProducts = function (products, sessionUser) {
     // sold button append if product_id = user_id in session
     // sold button append if product's user_id = user's id in session
     if (products.user_id === userId) {
-        $button.prepend('<a class="btn btn-pill">SOLD</a>');
+        $button.prepend('<a class="btn-red btn btn-pill">Mark it Sold</a>');
     }
     // store cookie -> refacotor to helper function later
     const storageId = `productId${id}`;
@@ -32,7 +32,7 @@ const renderProducts = function (products, sessionUser) {
     }
     $('.column').css('background-color', 'transparent');
 };
-  
+
 
 
 // <div id="wrapper">
@@ -55,14 +55,14 @@ const createProductElement = function (product) {
     return $(`
     <div id="flexbox f-column">
         <div class="show-column f-start p-0" id="product-header">
-            <div class="flexbox">
+            <div class="flexbox bg-white">
                 <button id="reply" class="reply btn-pill">Reply</button>
                 <button><i class="fa fa-heart"></i></button>
-                <span>Posted on ${moment(product.created_at).format("ddd")}...</span>
             </div>
         </div>
     </div>
         <h4 class="card-title f-start">${product.title} (${product.location})</h4>
+        <p>Posted 'dis <strong>${moment(product.created_at).format("ddd @ hh")}</strong> ...</p>
         <img class="card-img img-round f-start" src="${product.product_photo_url}" alt="">
         <div class="column-content p-margin>
             <p class="info">${product.description}</p>

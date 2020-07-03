@@ -216,7 +216,7 @@ article {
     padding: 2rem;
     // max-width: 20rem;
     border-radius: 0.25rem;
-    height: 26%;
+    // height: 26%;
     margin-top: 5%;
     width: 22%;
     overflow: hidden;
@@ -226,6 +226,36 @@ article {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+}
+.fav-column
+{
+  background-color: lightgray;
+    // width: 25%;
+    // height: auto;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    // margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.card-img
+{
+      width: unset;
+    height: 50%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.column-content
+{
+      display: flex;
+    padding: 1rem 0;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .show-column
@@ -246,7 +276,7 @@ article {
 }
 
 
-.p-0 
+.p-0
 {
   padding: 0;
 }
@@ -301,6 +331,15 @@ article {
 }
 
 // product show
+#reply
+{
+  margin-right: 2em;
+}
+
+.bg-white
+{
+  background-color: white;
+}
 
 #wrapper {
     width: 1000px;
@@ -308,6 +347,11 @@ article {
     margin: auto;
     justify-content: center;
     background: #dbc9cb;
+}
+
+.btn-red
+{
+  background-color: red;
 }
 
 .flexbox
@@ -333,9 +377,9 @@ article {
 
 .prod-container
 {
-  width: 980px; 
-  height: 1000px; 
-  // background-color: grey; 
+  width: 980px;
+  height: 1000px;
+  // background-color: grey;
   margin:auto;
 }
 
@@ -355,7 +399,7 @@ article {
 #button-container
 {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
 }
 
 .btn-pill
@@ -368,13 +412,18 @@ article {
   text-align: center;
 }
 
+.secondary
+{
+  background: red;
+}
+
 .btn-round
 {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 14rem;
-  width: 14rem;
+  // width: 14rem;
   // border-radius: 4999px;
   // padding-top: 0.5rem;
   // padding-bottom: 0.5rem;
@@ -412,6 +461,13 @@ article {
   }
 }
 
+.fav-card
+{
+  margin-top: 5%;
+  width: 22%;
+  flex-direction: columnj;
+}
+
 #copyright {
   font-size: 1rem;
   text-align: center;
@@ -425,6 +481,22 @@ article {
   {
     margin: 20px;
   }
+
+.column
+{
+    background-color: lightgray;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin-top: 5%;
+    width: 22%;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin: 1rem 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
 }
 
 @media (max-width:768px)
