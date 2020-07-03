@@ -50,18 +50,15 @@ module.exports = (db, io) => {
     io.on('connection', (socket) => {
         console.log('user connected', socket.id);
         socket.on('chat message', (msg) => {
-            const socketID = socket.id;
-
-            io.emit('chat message', {
-                username: socket.id,
-                message: msg,
-            });
             console.log(msg);
-
+            io.emit('chat message', {
+                username: msg.id,
+                message: msg.message,
+            });
             const column = 'user_id, body, product_id';
             const values = [id, `'${msg}'`, productId];
 
-            message.insert(column, values);
+            // message.insert(column, values);
         });
         socket.on('disconnect', () => {
             console.log('disconnect: ');

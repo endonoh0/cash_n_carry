@@ -23,7 +23,7 @@ const renderProducts = function (products) {
 const createProductElement = function (product) {
    let element = `
     <div class="column">
-      <img class="card-img" src="${product.cover_photo_url}" alt="Card image cap">
+      <img class="card-img btn-round" src="${product.cover_photo_url}" alt="Card image cap">
       <div class="column-content">
         <h4 class="card-title">${product.title} $${product.price}</h4>
         <p class="info">${product.description}</p>
@@ -31,13 +31,13 @@ const createProductElement = function (product) {
  if (product.active === true) {
     element += `
        </div>
-          <a href="/products/${product.id}" class="btn float-r">Buy</a>
+          <a href="/products/${product.id}" class="btn float-r btn-pill">Buy</a>
         </div>
         `;
    } else {
     element += `
     </div>
-       <a class="btn float-r sold">Sold</a>
+       <a class="btn float-r sold btn-pill">Sold</a>
      </div>
      `;
    }

@@ -11,6 +11,8 @@ const router = express.Router();
 const users = require('../controllers/users');
 const products = require('../controllers/products');
 const favorties = require('../controllers/favorites');
+const messages = require('../controllers/messages');
+
 
 // const db        = require('/models/pool');
 
@@ -27,9 +29,12 @@ module.exports = (db) => {
     // GET request for one user.
     router.get('/users/:id', users.show);
 
+    router.get('/messages', messages.show);
+
     router.post('/favorite/', favorties.favorite);
 
     router.post('/unfavorite/', favorties.unfavorite);
+
 
     // router.post('/favorite/', (req, res) => {
     //     const favorite = { clickTime: new Date()};

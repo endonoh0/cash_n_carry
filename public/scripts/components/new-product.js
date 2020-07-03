@@ -15,7 +15,6 @@ $(document).ready(function () {
 const renderProducts = function (products, sessionUser) {
     let id = products.id;
     const userId = Number(sessionUser);
-    console.log(userId);
     const $container = $('#products-container');
     const $button = $('#button-container');
 
@@ -24,7 +23,7 @@ const renderProducts = function (products, sessionUser) {
     // sold button append if product_id = user_id in session
     // sold button append if product's user_id = user's id in session
     if (products.user_id === userId) {
-        $button.prepend('<button>SOLD</button>');
+        $button.prepend('<a class="btn btn-pill">SOLD</a>');
     }
     // store cookie -> refacotor to helper function later
     const storageId = `productId${id}`;
@@ -33,24 +32,40 @@ const renderProducts = function (products, sessionUser) {
     }
     $('.column').css('background-color', 'transparent');
 };
+  
 
+
+// <div id="wrapper">
+//     <div class="column" id="product-header">
+//         <div class="flexbox">
+//             <div>
+//                 <button id="reply" class="reply">Reply</button>
+//                 <button><i class="fa fa-heart"></i></button>
+//             </div>
+//             <span>Posted on ${moment(product.created_at).format("ddd")}...</span>
+//         </div>
+
+//         <h3>${product.title} (${product.location})</h3>
+//         <img class="w-full" src="${product.product_photo_url}" alt="">
+//             <p>${product.description}</p>
+//         </div>
+//     </div>
 // Insert products inputs into html template
 const createProductElement = function (product) {
-
     return $(`
-    <div id="wrapper">
-        <div class="column" id="product-header">
+    <div id="flexbox f-column">
+        <div class="show-column f-start p-0" id="product-header">
             <div class="flexbox">
-                <div>
-                    <button id="reply" class="reply">Reply</button>
-                    <button><i class="fa fa-heart"></i></button>
-                </div>
+                <button id="reply" class="reply btn-pill">Reply</button>
+                <button><i class="fa fa-heart"></i></button>
                 <span>Posted on ${moment(product.created_at).format("ddd")}...</span>
-              </div>
-            <h3>${product.title} (${product.location})</h3>
-            <img class="w-full" src="${product.product_photo_url}" alt="">
-            <p>${product.description}</p>
+            </div>
         </div>
     </div>
+        <h4 class="card-title f-start">${product.title} (${product.location})</h4>
+        <img class="card-img img-round f-start" src="${product.product_photo_url}" alt="">
+        <div class="column-content p-margin>
+            <p class="info">${product.description}</p>
+        </div>
 `);
 };

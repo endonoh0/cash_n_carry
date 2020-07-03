@@ -4,12 +4,11 @@ const message = require('../controllers/messages');
 
 module.exports = (db, io) => {
     // const message = require('../controllers/messages')(io);
-    let id;
-
     router.get('/', (req, res) => {
-        message.index(req, res);
-        id = req.session.userId;
+       res.send("you made it");
     });
+
+    router.post('/store', message.store);
 
     // io.on('connection', (socket) => {
     //     console.log('user connected', socket.id);
