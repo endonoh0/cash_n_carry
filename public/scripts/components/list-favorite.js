@@ -4,7 +4,6 @@ $(document).ready(function () {
         method: 'GET',
         url: '/api/favorites',
     }).done((data) => {
-        console.log(data);
         renderProducts(data.data);
     });
 });
@@ -14,7 +13,6 @@ const renderProducts = function (products) {
     const $container = $('.container').empty();
   
     products.forEach(function (product) {
-      console.log(product);
         $container.prepend(createProductElement(product));
     });
   };
@@ -31,7 +29,7 @@ const renderProducts = function (products) {
    if (product.active === true) {
       element += `
          </div>
-            <a href="/products/${product.id}" class="btn float-r">Buy</a>
+            <a href="/products/${product.product_id}" class="btn float-r">Buy</a>
           </div>
           `;
      } else {
@@ -41,7 +39,5 @@ const renderProducts = function (products) {
        </div>
        `;
      }
-  
-     console.log(element);
      return element;
   };

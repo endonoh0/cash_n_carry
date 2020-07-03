@@ -22,3 +22,8 @@
 - filter
 
 # my fav
+
+
+Talk more about the reason for going for what we did
+why we were proud
+and also have eric talk more and do a better introduction
