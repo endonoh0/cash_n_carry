@@ -2,11 +2,6 @@
 
 An app where you can put different types of things up for sale and let buyers find the items they are looking for quickly, and easily contact sellers via a web socket.
 
-## Screenshots
-
-!["Screenshot of product page"](https://github.com/endonoh0/cash_n_carry/blob/master/docs/product-site.png?raw=true)
-!["Screenshot of site home page"](https://github.com/endonoh0/cash_n_carry/blob/master/docs/product-page.png?raw=true)
-
 ## Main Features
 - users can see featured items on a main feed
 - users can filter items by price,
@@ -19,6 +14,10 @@ An app where you can put different types of things up for sale and let buyers fi
 - mark items as SOLD!
 - send a message via web-socket back on negotiations in buying the said item
 
+## Screenshots
+
+!["Screenshot of product page"](https://github.com/endonoh0/cash_n_carry/blob/master/docs/product-site.png?raw=true)
+!["Screenshot of site home page"](https://github.com/endonoh0/cash_n_carry/blob/master/docs/product-page.png?raw=true)
 
 ## Getting Started
 1. Create the `.env` file: `cp .env.example .env`
