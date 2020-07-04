@@ -12,14 +12,14 @@ module.exports = {
             const values = [req.session.userId, `${msg}`, productId];
             messageModal.insert(column, values);
             res.status(200);
-        } catch (err) {
+    } catch (err) {
             res.status(200).json({ error: err.stack });
         }
     },
     show: async (req,res) => {
         const productId = req.query.productId;
         try {
-            const query = ` 
+            const query = `
             JOIN users ON user_id = users.id
             WHERE product_id = ${productId}`;
             const data = await messageModal.select('*', query);

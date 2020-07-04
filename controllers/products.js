@@ -34,6 +34,8 @@ module.exports = {
         let idQuery;
         if (req.params.id) {
             idQuery = ` WHERE id = ${req.params.id}`;
+        } else {
+            idQuery = ` ORDER BY id;`;
         }
         try {
             // const data = await productModel.select('*', ` WHERE active = true`);
@@ -111,7 +113,7 @@ module.exports = {
                 false,
                 `WHERE products.id = ${req.params.id}`
             );
-            res.status(200);
+            res.redirect('/products/');
         } catch (err) {
             res.status(200).json({ error: err.stack });
         }

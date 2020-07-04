@@ -23,7 +23,7 @@ const renderProducts = function (products, sessionUser) {
     // sold button append if product_id = user_id in session
     // sold button append if product's user_id = user's id in session
     if (products.user_id === userId) {
-        $button.prepend('<a class="btn-red btn btn-pill">Mark it Sold</a>');
+        $button.prepend(`<a onClick = "window.location.href = '/products'" class="btn-red btn btn-pill">Mark it Sold</a>`);
     }
     // store cookie -> refacotor to helper function later
     const storageId = `productId${id}`;
@@ -62,7 +62,7 @@ const createProductElement = function (product) {
         </div>
     </div>
         <h4 class="card-title f-start">${product.title} (${product.location})</h4>
-        <p>Posted 'dis <strong>${moment(product.created_at).format("ddd @ hh")}</strong> ...</p>
+        <p>Posted 'dis <strong>${moment(product.created_at).format("dddd @ h:mm A")}</strong> ...</p>
         <img class="card-img img-round f-start" src="${product.product_photo_url}" alt="">
         <div class="column-content p-margin>
             <p class="info">${product.description}</p>
