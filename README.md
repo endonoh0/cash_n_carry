@@ -4,8 +4,8 @@ An app where you can put different types of things up for sale and let buyers fi
 
 ## Screenshots
 
-!["Screenshot of site home page"](docs/product-page.png)
 !["Screenshot of product page"](docs/product-site.png)
+!["Screenshot of site home page"](docs/product-page.png)
 
 ## Main Features
 - users can see featured items on a main feed
@@ -24,7 +24,6 @@ Admins can:
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
 2. Set the `DATABASE_URL` to your postgres database on elephant sql.
 3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
 5. Run the server: `npm run local`
 6. Visit `http://localhost:8080/api/users/1` to login in as a user
 7. Post your first ad!
