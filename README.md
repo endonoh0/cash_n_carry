@@ -11,7 +11,7 @@ An app where you can put different types of things up for sale and let buyers fi
 - users can see featured items on a main feed
 - users can filter items by price,
 - users can favourite items to check up on them later
-= users can send messages to the user that is listing the item
+- users can send messages to the user that is listing the item
 
 **Admins can:**
 - post items, which can be seen by others
