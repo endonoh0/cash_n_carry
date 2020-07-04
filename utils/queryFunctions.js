@@ -23,34 +23,27 @@ const executeQueryArray = async (arr) =>
 const dropAllTables = () => {
     executeQueryArray([dropTable]);
 };
-
 const createUsersTables = () => {
     executeQueryArray([createUsers]);
 };
-
 const insertIntoUsers = () => {
     executeQueryArray([insertUsers]);
 };
-
 const createProductsTable = () => {
     executeQueryArray([createProducts]);
 };
-
 const insertIntoProducts = () => {
     executeQueryArray([insertProducts]);
 };
-
 const createFavoritesTable = () => {
     executeQueryArray([createFavorites]);
 };
-
 const insertIntoFavorites = () => {
     executeQueryArray([insertFavorites]);
 };
 const createMessagesTable = () => {
     executeQueryArray([createMessage]);
 };
-
 const insertIntoMessages = () => {
     executeQueryArray([insertMessages]);
 };

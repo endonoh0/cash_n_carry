@@ -3,3 +3,8 @@ public/styles
 .env
 *.log
 *.sqlite3
+planning/
+utils/
+.eslint.json
+.prettierrc
+.editorconfig

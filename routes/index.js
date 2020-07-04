@@ -1,62 +1,36 @@
 /*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
+ * All routes defined here are mounted onto /api
  */
+const express     = require('express');
+const router      = express.Router();
 
-const express = require('express');
-const router = express.Router();
-
-const users = require('../controllers/users');
-const products = require('../controllers/products');
-const favorties = require('../controllers/favorites');
-const messages = require('../controllers/messages');
-
-
-// const db        = require('/models/pool');
+const users       = require('../controllers/users');
+const products    = require('../controllers/products');
+const favorties   = require('../controllers/favorites');
+const messages    = require('../controllers/messages');
 
 module.exports = (db) => {
-    // GET request to show all users.
+
+    // Display the user in chat.
     router.get('/users', users.index);
 
-    // GET request to show all products.
+    // Display all products.
     router.get('/products', products.index);
 
-    // GET request to one specific product.
+    // Display the specific product.
     router.get('/products/:id', products.index);
 
-    // GET request for one user.
+    // Login as the user
     router.get('/users/:id', users.show);
 
+    // Display all messages in chat.
     router.get('/messages', messages.show);
 
+    // Favorite the product.
     router.post('/favorite/', favorties.favorite);
 
+    // Unfavorite the product.
     router.post('/unfavorite/', favorties.unfavorite);
-
-
-    // router.post('/favorite/', (req, res) => {
-    //     const favorite = { clickTime: new Date()};
-    //     console.log(favorite);
-    //     console.log(req.body.$product_id);
-    //     res.sendStatus(200);
-    // const id = req.session.user_idj;
-
-    // const queryString = `INSERT INTO favorites (user_id, product_id) VALUES ($1, $2) RETURN *;`;
-    // const values = [id, req.params.id];
-
-    // db.query(queryString, values)
-    //     .then(res => console.log(res.rows));
-
-    // db.query('clicks').save(click, (err, result) => {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-    //     console.log('click added to db');
-    //     res.sendStatus(201);
-    // });
-    // });
 
     return router;
 };

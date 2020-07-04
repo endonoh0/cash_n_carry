@@ -1,49 +1,51 @@
-const express = require('express');
-const router = express.Router();
-const product = require('../controllers/products');
-
-const { Model } = require('../models/model');
-const message = new Model('messages');
+const express     = require('express');
+const router      = express.Router();
+const product     = require('../controllers/products');
 
 module.exports = (db, io) => {
+
+    // Set the user and product session id.
     let id;
     let productId;
 
+    // Display the product site page.
     router.get('/', (req, res) => {
         res.render('index');
     });
 
-    // GET request for list of all product items.
+    // Display a list of products.
     router.get('/products', (req, res) => {
         res.render('products');
     });
 
-    // favorites
+    // Display a list of favorite products.
     router.get('/products/favorites', (req, res) => {
         res.render('product_favorites');
     });
 
+    // Display the user's favorites.
     router.get('/api/favorites', product.favorite);
 
-    // filter price url
+    // API request price filter.
     router.get('/filter/:price', product.filter);
 
-    // POST request for creating a product.
+    // Persist the product to database.
     router.post('/api/products', product.store);
 
-    // GET request for creating a product. Note this must come before routes that display book (uses id).
+    // Display the form to create a new product.
     router.get('/products/new', product.create);
 
+    // Display all featured products.
     router.get('/products/featured', product.featured);
 
-    // GET request for one product.
+    // Display the specific product.
     router.get('/products/:id', (req, res) => {
         product.show(req, res);
         id = req.session.userId;
         productId = req.params.Id;
     });
 
-    // POST request to update product.
+    // Update the product.
     router.post('/products/:id', product.update);
 
     // Io messenger
@@ -55,10 +57,6 @@ module.exports = (db, io) => {
                 username: msg.id,
                 message: msg.message,
             });
-            const column = 'user_id, body, product_id';
-            const values = [id, `'${msg}'`, productId];
-
-            // message.insert(column, values);
         });
         socket.on('disconnect', () => {
             console.log('disconnect: ');

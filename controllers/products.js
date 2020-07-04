@@ -1,72 +1,48 @@
-const { Model } = require('../models/model');
-const productModel = new Model('products');
+const { Model }       = require('../models/model');
+const product         = new Model('products');
 
 module.exports = {
-    favorite: async (req, res) => {
-        const currentUser = req.session.userId;
-        try {
-            const data = await productModel.select(
-                '*',
-                ` JOIN favorites on product_id = products.id
-                          where favorites.user_id = ${currentUser} AND products.active = true AND favorites.active = true;`
-            );
-            res.status(200).json({ data: data.rows });
-        } catch (err) {
-            res.status(200).json({ error: err.stack });
-        }
-    },
-
-    filter: async (req, res) => {
-        let price = req.params.price;
-        try {
-            const data = await productModel.select(
-                '*',
-                ` WHERE price < ${price} AND active = true`
-            );
-            res.status(200).json({ data: data.rows });
-        } catch (err) {
-            res.status(200).json({ error: err.stack });
-        }
-    },
 
     // Display list of all ProductInstances.
     index: async (req, res) => {
         let idQuery;
+
         if (req.params.id) {
             idQuery = ` WHERE id = ${req.params.id}`;
         }
         try {
-            // const data = await productModel.select('*', ` WHERE active = true`);
-            const data = await productModel.select('*', idQuery);
+            const data = await product.select('*', idQuery);
 
-            res.status(200).json({ data: data.rows, currentUser: req.session.userId });
+            res.status(200).json({
+                data: data.rows,
+                currentUser: req.session.userId,
+            });
         } catch (err) {
             res.status(200).json({ error: err.stack });
         }
     },
 
-    // Display detail page for a specific ProductInstance.
+    // Query select the specific product.
     show: async (req, res) => {
         try {
-            const data = await productModel.select(
+            const data = await product.select(
                 '*',
                 ` WHERE id = ${req.params.id}`
             );
-            // passed in cookie session user_id
             const userId = req.session.userId;
-            console.log({...data.rows[0]});
+
             res.render('products_show', { ...data.rows[0], userId });
         } catch (err) {
             res.status(200).json({ error: err.stack });
         }
     },
 
-    // Display ProductInstance create form on GET.
+    // Display the new product page.
     create: (req, res) => {
         res.render('products_new');
     },
 
-    // Handle ProductInstance create on POST.
+    // Query insert products.
     store: async (req, res) => {
         const {
             title,
@@ -91,7 +67,7 @@ module.exports = {
         ];
 
         try {
-            await productModel.insert(columns, values, res);
+            await product.insert(columns, values, res);
             res.redirect('/products');
         } catch (err) {
             res.status(200).json({ error: err.stack });
@@ -103,10 +79,10 @@ module.exports = {
         res.send('NOT IMPLEMENTED: ProductInstance delete POST');
     },
 
-    // Handle ProductInstance update on POST.
+    // Set product active status to false.
     update: async (req, res) => {
         try {
-            const data = await productModel.update(
+            const data = await product.update(
                 'active',
                 false,
                 `WHERE products.id = ${req.params.id}`
@@ -116,18 +92,48 @@ module.exports = {
             res.status(200).json({ error: err.stack });
         }
     },
+
+    // Query select featured and active products.
     featured: async (req, res) => {
         try {
-            const data = await productModel.select(`*`, ` WHERE featured = true AND active = true`);
-            // const data = await productModel.select(`*`, ` WHERE id = 1`);
+            const data = await product.select(
+                `*`,
+                ` WHERE featured = true AND active = true`
+            );
             res.status(200).json({ data: data.rows });
         } catch (err) {
             res.status(200).json({ error: err.stack });
         }
     },
+
+    // Display all favorited products.
+    favorite: async (req, res) => {
+
+      try {
+        const currentUser = req.session.userId;
+        const data = await product.select(
+          '*',
+          ` JOIN favorites on product_id = products.id
+            where favorites.user_id = ${currentUser} AND products.active = true AND favorites.active = true;`
+        );
+        res.status(200).json({ data: data.rows });
+      } catch (err) {
+        res.status(200).json({ error: err.stack });
+      }
+    },
+
+    // Filter products by price.
+    filter: async (req, res) => {
+      let price = req.params.price;
+
+      try {
+        const data = await product.select(
+          '*',
+          ` WHERE price < ${price} AND active = true`
+        );
+        res.status(200).json({ data: data.rows });
+      } catch (err) {
+        res.status(200).json({ error: err.stack });
+      }
+    },
 };
-
-// const addProduct = async (req, res) => {
-
-// module.exports = addProduct;
-// module.exports = productPage;

@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  /**
-   * Fetch all products
-   */
-  const pathname = window.location.pathname;
+    /**
+     * Fetch all products
+     */
+    const pathname = window.location.pathname;
     $.ajax({
         method: 'GET',
         url: `/api${pathname}`,
@@ -33,8 +33,6 @@ const renderProducts = function (products, sessionUser) {
     $('.column').css('background-color', 'transparent');
 };
 
-
-
 // <div id="wrapper">
 //     <div class="column" id="product-header">
 //         <div class="flexbox">
@@ -61,9 +59,15 @@ const createProductElement = function (product) {
             </div>
         </div>
     </div>
-        <h4 class="card-title f-start">${product.title} (${product.location})</h4>
-        <p>Posted 'dis <strong>${moment(product.created_at).format("ddd @ hh")}</strong> ...</p>
-        <img class="card-img img-round f-start" src="${product.product_photo_url}" alt="">
+        <h4 class="card-title f-start">${product.title} (${
+        product.location
+    })</h4>
+        <p>Posted 'dis <strong>${moment(product.created_at).format(
+            'ddd @ hh'
+        )}</strong> ...</p>
+        <img class="card-img img-round f-start" src="${
+            product.product_photo_url
+        }" alt="">
         <div class="column-content p-margin>
             <p class="info">${product.description}</p>
         </div>

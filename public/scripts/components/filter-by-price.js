@@ -6,12 +6,12 @@ $(() => {
         .trigger('change');
 
     $('#range').on('mouseup', function () {
-      const $price = $('.output').val();
+        const $price = $('.output').val();
+
         $.ajax({
             method: 'GET',
-            url: `/filter/${$price}`, //filter/:value
+            url: `/filter/${$price}`,
         }).done((data) => {
-            console.log(data.data);
             renderProducts(data.data);
             $('.output').val('$' + this.value);
         });

@@ -13,13 +13,10 @@
     <main>
         <div id="products-container" class="prod-container">
             <div id="button-container"></div>
-        <!-- </div> -->
 
-<!-- Below is code that works -->
-
-        <!-- <div id="products-container"> </div> -->
-        <p class="product_id" style="display: none;"><%= id %></p>
-        <%- include('./partials/_messenger') %>
+            <p class="product_id no-display"><%= id %></p>
+            <%- include('./partials/_messenger') %>
+        </div>
     </main>
 
     <footer><%- include('./partials/_footer') %></footer>

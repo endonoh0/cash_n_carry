@@ -22,8 +22,8 @@ CREATE TABLE products (
     description TEXT NOT NULL,
     quantity BIGINT NOT NULL,
     location VARCHAR(255) NOT NULL,
-    active BOOLEAN,
-    featured BOOLEAN,
+    active BOOLEAN DEFAULT TRUE,
+    featured BOOLEAN DEFAULT FALSE,
     cover_photo_url VARCHAR(255),
     product_photo_url VARCHAR(255)
 );

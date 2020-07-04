@@ -2,9 +2,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  // background-color: #f0e046;
-//   background-image: url(https://images3.alphacoders.com/621/621682.jpg);
-//   background-attachment: fixed;
 }
 
 header
@@ -76,8 +73,6 @@ nav ul li a:hover
   visibility: hidden;
 }
 
-
-
 #footer {
     position: absolute;
     bottom: 0;
@@ -94,7 +89,6 @@ nav ul li a:hover
 }
 
 // Form
-
 .wrapper
 {
   background-color: lightgrey;
@@ -199,6 +193,11 @@ article {
   justify-content: center;
 }
 
+.no-display
+{
+  display: none;
+}
+
 .container
 {
   width: 90vw;
@@ -214,9 +213,7 @@ article {
 {
   background-color: lightgray;
     padding: 2rem;
-    // max-width: 20rem;
     border-radius: 0.25rem;
-    // height: 26%;
     margin-top: 5%;
     width: 22%;
     overflow: hidden;
@@ -230,12 +227,9 @@ article {
 .fav-column
 {
   background-color: lightgray;
-    // width: 25%;
-    // height: auto;
     border-radius: 0.25rem;
     overflow: hidden;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    // margin: 3rem 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -244,7 +238,7 @@ article {
 
 .card-img
 {
-      width: unset;
+    width: unset;
     height: 50%;
     margin-bottom: 1rem;
     margin-top: 1rem;
@@ -252,7 +246,7 @@ article {
 
 .column-content
 {
-      display: flex;
+    display: flex;
     padding: 1rem 0;
     justify-content: space-between;
     flex-direction: column;
@@ -262,7 +256,6 @@ article {
 {
     background-color: lightgray;
     padding: 2rem;
-    // max-width: 20rem;
     border-radius: 0.25rem;
     height: 26%;
     margin-top: 5%;
@@ -274,7 +267,6 @@ article {
     flex-direction: column;
     justify-content: flex-end;
 }
-
 
 .p-0
 {
@@ -330,7 +322,6 @@ article {
   background-color: red;
 }
 
-// product show
 #reply
 {
   margin-right: 2em;
@@ -379,7 +370,6 @@ article {
 {
   width: 980px;
   height: 1000px;
-  // background-color: grey;
   margin:auto;
 }
 
@@ -390,7 +380,6 @@ article {
 }
 
 // utilities //
-
 .favorited
 {
   color: red;
@@ -399,7 +388,6 @@ article {
 #button-container
 {
   display: flex;
-  // justify-content: center;
 }
 
 .btn-pill
@@ -423,12 +411,6 @@ article {
   justify-content: center;
   align-items: center;
   height: 14rem;
-  // width: 14rem;
-  // border-radius: 4999px;
-  // padding-top: 0.5rem;
-  // padding-bottom: 0.5rem;
-  // padding-right: 1rem;
-  // padding-left: 1rem;
 }
 
 .outline:hover
@@ -440,9 +422,7 @@ article {
   border-radius: 1rem;
 }
 
-
 // footer
-
 .footer_menu_container {
   font-size: 1rem;
   display: flex;
@@ -474,7 +454,6 @@ article {
 }
 
 // Media
-
 @media (max-width:1200px)
 {
   header

@@ -14,10 +14,10 @@ const {
     await dropAllTables();
     await createUsersTables();
     await createProductsTable();
-    // await createFavoritesTable();
-    // await createMessagesTable();
-    // await insertIntoUsers();
-    // await insertIntoProducts();
-    // await insertIntoFavorites();
+    await createFavoritesTable();
+    await createMessagesTable();
+    await insertIntoUsers();
+    await insertIntoProducts();
+    await insertIntoFavorites();
     await insertIntoMessages();
 })();
