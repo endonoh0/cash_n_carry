@@ -1,6 +1,6 @@
 # Cash n' Carry
 
-An app where you can put different types of things up for sale and let buyers find the items they are looking for quickly, and easily contact sellers.
+An app where you can put different types of things up for sale and let buyers find the items they are looking for quickly, and easily contact sellers using a web socket.
 
 ## Screenshots
 
