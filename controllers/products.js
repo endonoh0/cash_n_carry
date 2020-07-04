@@ -9,6 +9,8 @@ module.exports = {
 
         if (req.params.id) {
             idQuery = ` WHERE id = ${req.params.id}`;
+        } else {
+            idQuery = ` ORDER BY id;`;
         }
         try {
             const data = await product.select('*', idQuery);
@@ -30,7 +32,6 @@ module.exports = {
                 ` WHERE id = ${req.params.id}`
             );
             const userId = req.session.userId;
-
             res.render('products_show', { ...data.rows[0], userId });
         } catch (err) {
             res.status(200).json({ error: err.stack });
@@ -87,7 +88,7 @@ module.exports = {
                 false,
                 `WHERE products.id = ${req.params.id}`
             );
-            res.status(200);
+            res.redirect('/products/');
         } catch (err) {
             res.status(200).json({ error: err.stack });
         }
@@ -105,6 +106,7 @@ module.exports = {
             res.status(200).json({ error: err.stack });
         }
     },
+<<<<<<< HEAD
 
     // Display all favorited products.
     favorite: async (req, res) => {
@@ -137,3 +139,6 @@ module.exports = {
       }
     },
 };
+=======
+};
+>>>>>>> ab7772c61d17b2d79c62e0c85d46168c8aea7823

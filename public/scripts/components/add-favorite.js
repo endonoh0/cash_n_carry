@@ -5,7 +5,7 @@ $(document).ready(function () {
         $('.fa-heart').addClass('favorited');
     }
 
-    $(document.body).on('click', '.fa-heart', function (e) {
+    $(document.body).on('click', '.fa-heart', function(e) {
         e.preventDefault();
 
         const $product_id   = $('.product_id').text();

@@ -8,10 +8,10 @@ $(document).ready(function () {
 });
 
 // Insert the products into the DOM
-const renderProducts = function (products) {
+const renderProducts = function(products) {
     const $container = $('.container').empty();
 
-    products.forEach(function (product) {
+    products.forEach(function(product) {
         $container.prepend(createProductElement(product));
     });
 };

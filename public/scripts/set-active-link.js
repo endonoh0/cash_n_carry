@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     const url       = window.location.href;
     const element   = $('nav ul.panels a');

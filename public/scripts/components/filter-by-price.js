@@ -1,6 +1,6 @@
 $(() => {
     $('#range')
-        .on('input', function () {
+        .on('input', function() {
             $('.output').val(this.value);
         })
         .trigger('change');

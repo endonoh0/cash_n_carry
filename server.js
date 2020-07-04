@@ -39,10 +39,10 @@ const productRouter       = require('./routes/products');
 const messageRouter       = require('./routes/messages');
 
 // API endpoints
-app.use('/api', indexRouter(database));
+app.use('/api', indexRouter());
 
 // Product routes
-app.use('/', productRouter(database, io));
+app.use('/', productRouter());
 
 // Message routes
 app.use('/messages', messageRouter(database));

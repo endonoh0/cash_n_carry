@@ -12,7 +12,7 @@ $(document).ready(function () {
 });
 
 // Insert the products into the DOM
-const renderProducts = function (products, sessionUser) {
+const renderProducts = function(products, sessionUser) {
     let id = products.id;
     const userId = Number(sessionUser);
     const $container = $('#products-container');
@@ -23,7 +23,7 @@ const renderProducts = function (products, sessionUser) {
     // sold button append if product_id = user_id in session
     // sold button append if product's user_id = user's id in session
     if (products.user_id === userId) {
-        $button.prepend('<a class="btn-red btn btn-pill">Mark it Sold</a>');
+        $button.prepend(`<a onClick = "window.location.href = '/products'" class="btn-red btn btn-pill">Mark it Sold</a>`);
     }
     // store cookie -> refacotor to helper function later
     const storageId = `productId${id}`;
@@ -49,7 +49,7 @@ const renderProducts = function (products, sessionUser) {
 //         </div>
 //     </div>
 // Insert products inputs into html template
-const createProductElement = function (product) {
+const createProductElement = function(product) {
     return $(`
     <div id="flexbox f-column">
         <div class="show-column f-start p-0" id="product-header">
