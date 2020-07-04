@@ -1,6 +1,4 @@
 // Database connection
-const { database }              = require('./models/pool.js');
-
 const morgan                    = require('morgan');
 const sass                      = require('node-sass-middleware');
 
@@ -12,9 +10,20 @@ const cookieSession = require('cookie-session');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
-// const io = require('socket.io')(http, {
-//     path:'/products/'
-// });
+
+// Io messenger
+io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', {
+            username: msg.id,
+            message: msg.message,
+        });
+    });
+    socket.on('disconnect', () => {
+        socket.removeAllListeners();
+        socket.off('chat message', () => {});
+    });
+});
 
 app.use(morgan('dev'));
 
@@ -44,27 +53,14 @@ const productRouter = require('./routes/products');
 const messageRouter = require('./routes/messages');
 
 // API endpoints
-app.use('/api', indexRouter(database));
+app.use('/api', indexRouter());
 
 // Product routes
-app.use('/', productRouter(database, io));
+app.use('/', productRouter());
 
 // Messaeg routes
-app.use('/messages', messageRouter(database));
-
-// // Home page
-// app.get('/', (req, res) => {
-//     res.render('index');
-// });
-// io.on('connection', () =>{
-//     console.log('a user is connected')
-//   });
+app.use('/messages', messageRouter());
 
 http.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
-// app.listen(PORT, () => {
-//     console.log(`Example app listening on port ${PORT}`);
-// });
-
-// module.exports = io;

@@ -35,12 +35,6 @@ class Model {
           RETURNING *;
       `;
         this.pool.query(query, values).then((res) => res.rows);
-        //     const query = `
-        //     INSERT INTO ${this.table} (${columns})
-        //     VALUES (${values})
-        //     RETURNING *;
-        // `;
-        //   this.pool.query(query).then((res) => res.rows);
     }
 }
 

@@ -1,10 +1,10 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-  const url = window.location.href;
+    const url = window.location.href;
 
-  const element = $('nav ul.panels a');
+    const element = $('nav ul.panels a');
 
-  element.filter(function () {
-    return $(this).prop('href') === url;
-  }).addClass('active');
+    element.filter(function() {
+        return $(this).prop('href') === url;
+    }).addClass('active');
 });

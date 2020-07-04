@@ -17,7 +17,7 @@ const renderProducts = function(products) {
     });
 };
 
-// Insert products inputs into html template
+// Create products inputs into html template
 const createProductElement = function(product) {
     let element = `
     <div class="column">
@@ -29,7 +29,7 @@ const createProductElement = function(product) {
     if (product.active === true) {
         element += `
        </div>
-          <a href="/products/${product.id}" class="btn float-r btn-pill">Buy</a>
+          <a href="/products/${product.product_id}" class="btn float-r btn-pill">Buy</a>
         </div>
         `;
     } else {

@@ -1,8 +1,8 @@
-$(document).ready(function () {
-  /**
+$(document).ready(function() {
+    /**
    * Fetch all products
    */
-  const pathname = window.location.pathname;
+    const pathname = window.location.pathname;
     $.ajax({
         method: 'GET',
         url: `/api${pathname}`,
@@ -12,7 +12,7 @@ $(document).ready(function () {
 });
 
 // Insert the products into the DOM
-const renderProducts = function (products, sessionUser) {
+const renderProducts = function(products, sessionUser) {
     let id = products.id;
     const userId = Number(sessionUser);
     const $container = $('#products-container');
@@ -33,25 +33,8 @@ const renderProducts = function (products, sessionUser) {
     $('.column').css('background-color', 'transparent');
 };
 
-
-
-// <div id="wrapper">
-//     <div class="column" id="product-header">
-//         <div class="flexbox">
-//             <div>
-//                 <button id="reply" class="reply">Reply</button>
-//                 <button><i class="fa fa-heart"></i></button>
-//             </div>
-//             <span>Posted on ${moment(product.created_at).format("ddd")}...</span>
-//         </div>
-
-//         <h3>${product.title} (${product.location})</h3>
-//         <img class="w-full" src="${product.product_photo_url}" alt="">
-//             <p>${product.description}</p>
-//         </div>
-//     </div>
 // Insert products inputs into html template
-const createProductElement = function (product) {
+const createProductElement = function(product) {
     return $(`
     <div id="flexbox f-column">
         <div class="show-column f-start p-0" id="product-header">

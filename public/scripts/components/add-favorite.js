@@ -1,13 +1,9 @@
 $(document).ready(function () {
-    console.log('Client-side code running');
-
-    // $(".fa-heart").addClass('favorited');
-
     if (localStorage.favorited) {
         $('.fa-heart').addClass('favorited');
     }
 
-    $(document.body).on('click', '.fa-heart', function (e) {
+    $(document.body).on('click', '.fa-heart', function(e) {
         e.preventDefault();
 
         const $product_id = $('.product_id').text();

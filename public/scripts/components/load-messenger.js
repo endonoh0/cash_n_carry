@@ -25,11 +25,13 @@ $(function() {
         if (msg.trim() === '') {
             return false;
         }
+
+        // Post request to store message in database
         $.post('/messages/store', {msg, productId});
     });
 
+    // Create and append HTML element to the DOM
     const generate_message = function(data) {
-        console.log(data.user_id);
         const msg = data.body;
         let url = data.avatar_url;
 
@@ -64,19 +66,19 @@ $(function() {
             .animate({ scrollTop: $('.chat-logs')[0].scrollHeight }, 1000);
     };
 
+    // Listens for chat message event
     socket.on('chat message', function(msg) {
         $.get('/api/users', { userId: msg.username })
             .done(result => {
-                console.log(result.data[0]);
                 let message = { ...result.data[0], user_id: result.data[0].id, body: msg.message};
                 generate_message(message);
             });
 
     });
 
+    // Loads all the messages if any from the database
     const starter = function(messages) {
         for (const message of messages.data) {
-            console.log(message);
             generate_message(message);
         }
     };
