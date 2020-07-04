@@ -9,6 +9,7 @@ const http              = require('http').createServer(app);
 const io                = require('socket.io')(http);
 
 app.use(morgan('dev'));
+
 app.set('view engine', 'ejs');
 app.set('trust proxy', 1);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,10 +40,10 @@ const productRouter       = require('./routes/products');
 const messageRouter       = require('./routes/messages');
 
 // API endpoints
-app.use('/api', indexRouter());
+app.use('/api', indexRouter(database));
 
 // Product routes
-app.use('/', productRouter());
+app.use('/', productRouter(database, io));
 
 // Message routes
 app.use('/messages', messageRouter(database));

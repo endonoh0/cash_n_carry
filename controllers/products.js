@@ -106,7 +106,6 @@ module.exports = {
             res.status(200).json({ error: err.stack });
         }
     },
-<<<<<<< HEAD
 
     // Display all favorited products.
     favorite: async (req, res) => {
@@ -139,6 +138,3 @@ module.exports = {
       }
     },
 };
-=======
-};
->>>>>>> ab7772c61d17b2d79c62e0c85d46168c8aea7823

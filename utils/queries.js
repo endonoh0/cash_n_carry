@@ -70,15 +70,3 @@ const insertMessages = `
 INSERT INTO messages (user_id, body, product_id)
 VALUES (1, 'hey I like what youre selling?', 1)
 `;
-
-module.exports = {
-    dropTable,
-    createUsers,
-    createProducts,
-    createFavorites,
-    createMessage,
-    insertMessages,
-    insertUsers,
-    insertProducts,
-    insertFavorites,
-};
