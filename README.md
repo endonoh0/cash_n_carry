@@ -21,7 +21,7 @@ An app where you can put different types of things up for sale and let buyers fi
 
 
 ## Getting Started
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
+1. Create the `.env` file: `cp .env.example .env`
 2. Set the `DATABASE_URL` to your postgres database on elephant sql.
 3. Insert queries from `utils/queries.js` into the database.
 3. Install dependencies: `npm i`
